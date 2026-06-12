@@ -3,188 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raphael Scapolan - Portfolio</title>
+    <meta name="description" content="Portfolio de Raphael Scapolan - Développeur Senior .NET/WPF, Architecture logicielle & Intégration IA">
+    <title>Raphael Scapolan — Développeur Senior .NET / Architecture & IA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="profile">
-                <h1>Raphael Scapolan</h1>
-                <p class="title">Développeur Senior .NET/WPF | Architecture & IA</p>
-                <div class="contact">
-                    <span>📧 <a href="mailto:contact@raphaelscapolan.fr">contact@raphaelscapolan.fr</a></span>
-                    <span>🔗 <a href="https://github.com" target="_blank">GitHub</a></span>
-                    <span>💼 <a href="https://linkedin.com" target="_blank">LinkedIn</a></span>
-                </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">RS<span>.</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+                    <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM5.6 5.6a1 1 0 0 1 1.4 0l1.4 1.4A1 1 0 0 1 7 8.4L5.6 7a1 1 0 0 1 0-1.4zm10 10a1 1 0 0 1 1.4 0l1.4 1.4a1 1 0 0 1-1.4 1.4L15.6 17a1 1 0 0 1 0-1.4zM2 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm17 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM5.6 18.4a1 1 0 0 1 0-1.4L7 15.6A1 1 0 0 1 8.4 17l-1.4 1.4a1 1 0 0 1-1.4 0zm10-10a1 1 0 0 1 0-1.4L17 5.6A1 1 0 0 1 18.4 7l-1.4 1.4a1 1 0 0 1-1.4 0z"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12.3 2.3a1 1 0 0 0-1.1 1.3 7 7 0 0 1-9.1 9.1 1 1 0 0 0-1.3 1.1A10 10 0 1 0 12.3 2.3z"/></svg>
+                </button>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
             </div>
         </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Développeur Senior · Architecture · IA</p>
+            <h1 class="hero-title">Raphael <span class="gradient-text">Scapolan</span></h1>
+            <p class="hero-subtitle">
+                Je conçois et modernise des systèmes logiciels complexes — de l'ERP à grande échelle
+                à l'intégration d'IA générative dans les workflows métier.
+            </p>
+            <div class="hero-cta">
+                <a href="#experience" class="btn btn-primary">Voir mon parcours</a>
+                <a href="#contact" class="btn btn-ghost">Me contacter</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">10+</span><span class="stat-label">ans d'expérience</span></div>
+                <div class="stat"><span class="stat-num">20k+</span><span class="stat-label">utilisateurs ERP</span></div>
+                <div class="stat"><span class="stat-num">PhD</span><span class="stat-label">modélisation num.</span></div>
+            </div>
+        </div>
+        <a href="#about" class="scroll-hint" aria-label="Défiler"><span></span></a>
     </header>
 
-    <!-- Main Content -->
-    <main class="container">
+    <main>
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-tag">01 — À propos</span>
+                    <h2>Du calcul haute performance à l'architecture d'entreprise</h2>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p>
+                            Développeur avec <strong>plus de 10 ans d'expérience</strong>, je m'appuie sur une formation
+                            scientifique solide (doctorat en modélisation numérique) pour concevoir des architectures
+                            logicielles robustes et performantes.
+                        </p>
+                        <p>
+                            Expert <strong>C# / WPF</strong> et écosystème <strong>Azure</strong>, je suis spécialisé dans la
+                            modernisation d'applications legacy et l'intégration d'<strong>IA générative</strong> au cœur
+                            des processus métier. Leader technique, j'accompagne les équipes Agile à grande échelle.
+                        </p>
+                    </div>
+                    <div class="about-highlights reveal">
+                        <div class="highlight"><span class="highlight-icon">🏛️</span><div><h4>Architecture</h4><p>Systèmes scalables & legacy</p></div></div>
+                        <div class="highlight"><span class="highlight-icon">🤖</span><div><h4>IA appliquée</h4><p>Automatisation & aide à la décision</p></div></div>
+                        <div class="highlight"><span class="highlight-icon">⚡</span><div><h4>Performance</h4><p>Calcul HPC & parallélisation</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Experience -->
-        <section class="section">
-            <h2>Expérience Professionnelle</h2>
-            
-            <article class="experience-item">
-                <div class="exp-header">
-                    <h3>Développeur Senior .NET/WPF — Intégration IA & Architecture</h3>
-                    <span class="duration">oct. 2015 - Aujourd'hui (10 ans 9 mois)</span>
+        <section class="section section-alt" id="experience">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-tag">02 — Parcours</span>
+                    <h2>Expérience professionnelle</h2>
                 </div>
-                <p class="company">CCB | Société internationale d'édition multimédia</p>
-                <p class="location">Rouen, Normandie, France • Hybride</p>
-                
-                <p><strong>Missions:</strong> Développement et maintenance de l'ERP propriétaire (80 filiales, 20 000+ utilisateurs) dans une organisation Agile à grande échelle (300+ collaborateurs). Équipe de 10 personnes.</p>
-                
-                <div class="achievements">
-                    <h4>Réalisations clés:</h4>
-                    <ul>
-                        <li><strong>Migration Windows (5 ans):</strong> Refonte globale et migration de l'ERP historique (Access/VBA) vers C#/WPF</li>
-                        <li><strong>Core ERP & E-Commerce:</strong> Module d'achats intégré et interconnexion e-commerce (flux cXML)</li>
-                        <li><strong>Architecture & Qualité:</strong> Architecture Serveur + Client lourd (Azure Service Bus) et couverture de tests automatiques (Specflow/Reqnroll)</li>
-                        <li><strong>Intégration IA:</strong> Automatisation du traitement de données et algorithmes d'aide à la décision</li>
-                        <li><strong>R&D Interne:</strong> Outils pour optimiser la productivité des développeurs, MCPs pour indexation de codebases</li>
-                    </ul>
-                </div>
-                
-                <div class="tech-stack">
-                    <p><strong>Stack Technique:</strong> C# (90%), WPF, SQL, PowerShell, Azure Service Bus, Specflow, Reqnroll, GitLab CI/CD, GitHub Copilot, Claude, GPT</p>
-                </div>
-            </article>
 
-            <article class="experience-item">
-                <div class="exp-header">
-                    <h3>Docteur en Modélisation Numérique</h3>
-                    <span class="duration">nov. 2010 - nov. 2014 (4 ans 1 mois)</span>
-                </div>
-                <p class="company">SIMAP, Laboratoire de Recherche sur les Matériaux • Grenoble</p>
-                <p class="location">Saint Martin d'Hères • Sur site</p>
-                
-                <p><strong>Sujet:</strong> Modélisation électromagnétique 3D d'inducteurs multibrins - Développement d'une méthode intégrale parallélisée</p>
-                
-                <div class="achievements">
-                    <ul>
-                        <li>Développement logiciel: Architecture et implémentation d'un logiciel parallèle de calcul électromagnétique</li>
-                        <li>Algorithmes innovants: Traitement de géométries complexes et calcul haute performance (HPC)</li>
-                        <li>Valorisation scientifique: Conférences internationales et publications</li>
-                    </ul>
-                </div>
-                
-                <div class="tech-stack">
-                    <p><strong>Stack Technique:</strong> C++, MPI, Python, MATLAB, Flux3D, FEA</p>
-                </div>
-            </article>
+                <div class="timeline">
+                    <article class="timeline-item reveal">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="tl-head">
+                                <h3>Développeur Senior .NET / WPF — Intégration IA & Architecture</h3>
+                                <span class="badge badge-now">En poste</span>
+                            </div>
+                            <p class="tl-meta">CCB · Édition multimédia internationale &nbsp;•&nbsp; oct. 2015 → Aujourd'hui &nbsp;•&nbsp; Rouen (Hybride)</p>
+                            <p class="tl-desc">Développement et maintenance de l'ERP propriétaire (80 filiales, 20 000+ utilisateurs) au sein d'une organisation Agile à grande échelle (300+ collaborateurs). Équipe de 10 personnes, environnement CI/CD et développement assisté par IA.</p>
+                            <ul class="tl-list">
+                                <li><strong>Migration majeure (5 ans) :</strong> refonte et migration de l'ERP historique (Access/VBA) vers C# / WPF.</li>
+                                <li><strong>Core ERP & E-Commerce :</strong> module d'achats intégré et interconnexion e-commerce (flux cXML).</li>
+                                <li><strong>Architecture & Qualité :</strong> client lourd + serveur (Azure Service Bus), tests automatisés (Specflow / Reqnroll).</li>
+                                <li><strong>Intégration IA :</strong> traitement automatisé de données (achats, factures) et matching commandes/factures.</li>
+                                <li><strong>R&D interne :</strong> outils de productivité, MCPs pour l'indexation de codebases, intégration GitLab/Redmine.</li>
+                            </ul>
+                            <div class="tl-tags">
+                                <span>C#</span><span>WPF</span><span>SQL</span><span>PowerShell</span><span>Azure Service Bus</span><span>Specflow</span><span>CI/CD</span><span>GitHub Copilot</span><span>Claude</span><span>GPT</span>
+                            </div>
+                        </div>
+                    </article>
 
-            <article class="experience-item">
-                <div class="exp-header">
-                    <h3>Ingénieur Calcul</h3>
-                    <span class="duration">nov. 2014 - juil. 2015 (9 mois)</span>
-                </div>
-                <p class="company">Akka Technologies</p>
-                <p class="location">Grenoble • Sur site</p>
-                
-                <p>Prestation de service en calcul scientifique pour Schneider Electric - Modélisation électromagnétique et automatisation de calculs via Python</p>
-            </article>
+                    <article class="timeline-item reveal">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="tl-head">
+                                <h3>Ingénieur Calcul</h3>
+                            </div>
+                            <p class="tl-meta">Akka Technologies (pour Schneider Electric) &nbsp;•&nbsp; nov. 2014 → juil. 2015 &nbsp;•&nbsp; Grenoble</p>
+                            <p class="tl-desc">Prestation en calcul scientifique : modélisation électromagnétique de contacteurs et études de tolérancement. Pilotage et parallélisation des calculs via scripts Python.</p>
+                            <div class="tl-tags"><span>Python</span><span>Flux</span><span>Électromagnétisme</span></div>
+                        </div>
+                    </article>
 
-            <article class="experience-item">
-                <div class="exp-header">
-                    <h3>Stages de Recherche</h3>
+                    <article class="timeline-item reveal">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="tl-head">
+                                <h3>Docteur (PhD) — Modélisation Numérique & Électromagnétisme</h3>
+                            </div>
+                            <p class="tl-meta">SIMAP, Laboratoire de Recherche sur les Matériaux &nbsp;•&nbsp; nov. 2010 → nov. 2014 &nbsp;•&nbsp; Grenoble</p>
+                            <p class="tl-desc">Modélisation électromagnétique 3D d'inducteurs multibrins — développement d'une méthode intégrale parallélisée.</p>
+                            <ul class="tl-list">
+                                <li><strong>Développement logiciel :</strong> conception et implémentation d'un solveur électromagnétique nativement parallèle.</li>
+                                <li><strong>Algorithmes :</strong> méthode numérique innovante pour géométries complexes (HPC).</li>
+                                <li><strong>Valorisation :</strong> conférences internationales et publications scientifiques.</li>
+                            </ul>
+                            <div class="tl-tags"><span>C++</span><span>MPI</span><span>Python</span><span>MATLAB</span><span>Flux3D</span><span>FEA</span></div>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item reveal">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <div class="tl-head"><h3>Stages de Recherche</h3></div>
+                            <p class="tl-meta">CEA-Leti (2010) · LAPTH (2009) &nbsp;•&nbsp; Grenoble / Annecy</p>
+                            <ul class="tl-list">
+                                <li><strong>CEA-Leti :</strong> modélisation d'électrodes de stimulation rétinienne (COMSOL & MATLAB).</li>
+                                <li><strong>LAPTH :</strong> calcul de la probabilité de désintégration du boson de Higgs (C++).</li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
-                <ul>
-                    <li><strong>CEA Leti (2010):</strong> Modélisation d'électrodes de stimulation rétinienne - COMSOL & MATLAB</li>
-                    <li><strong>LAPTH (2009):</strong> Calcul de probabilités du boson de Higgs - C++</li>
-                </ul>
-            </article>
+            </div>
         </section>
 
         <!-- Skills -->
-        <section class="section">
-            <h2>Compétences</h2>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Langages</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">C# (Expert)</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">PowerShell</span>
-                        <span class="skill-tag">SQL</span>
-                    </div>
+        <section class="section" id="skills">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-tag">03 — Stack</span>
+                    <h2>Compétences techniques</h2>
                 </div>
-                
-                <div class="skill-category">
-                    <h3>Frameworks & Tools</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">WPF</span>
-                        <span class="skill-tag">Azure Service Bus</span>
-                        <span class="skill-tag">Specflow/Reqnroll</span>
-                        <span class="skill-tag">GitLab</span>
-                        <span class="skill-tag">CI/CD</span>
+                <div class="skills-grid">
+                    <div class="skill-card reveal">
+                        <h3>Langages</h3>
+                        <div class="bar"><span class="bar-label">C#</span><div class="bar-track"><i style="--w:95%"></i></div></div>
+                        <div class="bar"><span class="bar-label">C++</span><div class="bar-track"><i style="--w:80%"></i></div></div>
+                        <div class="bar"><span class="bar-label">Python</span><div class="bar-track"><i style="--w:80%"></i></div></div>
+                        <div class="bar"><span class="bar-label">SQL</span><div class="bar-track"><i style="--w:70%"></i></div></div>
+                        <div class="bar"><span class="bar-label">PowerShell</span><div class="bar-track"><i style="--w:65%"></i></div></div>
                     </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>IA & Calcul</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">GitHub Copilot</span>
-                        <span class="skill-tag">Claude</span>
-                        <span class="skill-tag">GPT</span>
-                        <span class="skill-tag">MATLAB</span>
-                        <span class="skill-tag">HPC</span>
+                    <div class="skill-card reveal">
+                        <h3>Frameworks & Outils</h3>
+                        <div class="chips">
+                            <span>WPF</span><span>.NET</span><span>Azure Service Bus</span><span>Specflow</span>
+                            <span>Reqnroll</span><span>GitLab</span><span>CI/CD</span><span>MPI</span><span>Flux3D</span>
+                        </div>
                     </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Soft Skills</h3>
-                    <div class="skill-tags">
-                        <span class="skill-tag">Architecture Logicielle</span>
-                        <span class="skill-tag">Agile</span>
-                        <span class="skill-tag">Leadership Technique</span>
-                        <span class="skill-tag">Mentorat</span>
+                    <div class="skill-card reveal">
+                        <h3>IA & Calcul</h3>
+                        <div class="chips">
+                            <span>GitHub Copilot</span><span>Claude</span><span>GPT</span><span>Gemini</span>
+                            <span>MCP</span><span>HPC</span><span>MATLAB</span><span>FEA</span>
+                        </div>
+                    </div>
+                    <div class="skill-card reveal">
+                        <h3>Méthodes</h3>
+                        <div class="chips">
+                            <span>Architecture logicielle</span><span>Agile à grande échelle</span>
+                            <span>BDD / TDD</span><span>Leadership technique</span><span>Mentorat</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Expertise -->
-        <section class="section">
-            <h2>Domaines d'Expertise</h2>
-            <div class="expertise-grid">
-                <div class="expertise-card">
-                    <h3>🏛️ Architecture Logicielle</h3>
-                    <p>Design d'architectures scalables, patterns CQRS, microservices, intégration de systèmes legacy</p>
+        <section class="section section-alt" id="expertise">
+            <div class="container">
+                <div class="section-head reveal">
+                    <span class="section-tag">04 — Valeur ajoutée</span>
+                    <h2>Domaines d'expertise</h2>
                 </div>
-                <div class="expertise-card">
-                    <h3>🤖 Intégration IA</h3>
-                    <p>Automatisation intelligente, traitement de données, algorithmes d'aide à la décision, MCPs</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>📊 Calcul Haute Performance</h3>
-                    <p>Modélisation numérique, parallélisation, FEA, optimisation d'algorithmes complexes</p>
-                </div>
-                <div class="expertise-card">
-                    <h3>🧪 Qualité & Testing</h3>
-                    <p>Tests automatisés, BDD (Specflow/Reqnroll), architecture testable</p>
+                <div class="expertise-grid">
+                    <div class="exp-card reveal"><span class="exp-icon">🏛️</span><h3>Architecture logicielle</h3><p>Conception de systèmes scalables, modernisation de legacy, architecture client/serveur distribuée.</p></div>
+                    <div class="exp-card reveal"><span class="exp-icon">🤖</span><h3>Intégration IA</h3><p>Automatisation intelligente, aide à la décision, développement de MCPs et outillage IA interne.</p></div>
+                    <div class="exp-card reveal"><span class="exp-icon">📊</span><h3>Calcul haute performance</h3><p>Modélisation numérique, parallélisation (MPI), méthodes intégrales et éléments finis.</p></div>
+                    <div class="exp-card reveal"><span class="exp-icon">🧪</span><h3>Qualité & Testing</h3><p>Tests automatisés, BDD (Specflow / Reqnroll), architecture testable et CI/CD.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section class="section">
-            <h2>À Propos</h2>
-            <p>Développeur passionné avec 10+ ans d'expérience en architecture logicielle et intégration IA. Formation scientifique solide en modélisation numérique et calcul haute performance. Spécialisé dans la modernisation d'applications legacy et l'optimisation de systèmes complexes.</p>
-            <p>Expert en C#/WPF, architecture Azure, et intégration d'IA générative dans les workflows métier. Leader technique avec expérience en gestion de grands projets Agile et mentorat de développeurs.</p>
+        <!-- Contact -->
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="contact-card reveal">
+                    <span class="section-tag">05 — Contact</span>
+                    <h2>Travaillons ensemble</h2>
+                    <p>Une question, un projet, une opportunité ? N'hésitez pas à me contacter.</p>
+                    <div class="contact-links">
+                        <a href="mailto:contact@raphaelscapolan.fr" class="contact-link"><span>✉️</span> contact@raphaelscapolan.fr</a>
+                        <a href="https://github.com/scapolanraphael-dev" target="_blank" rel="noopener" class="contact-link"><span>💻</span> GitHub</a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="contact-link"><span>💼</span> LinkedIn</a>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2026 Raphael Scapolan. Tous droits réservés.</p>
+            <p>© 2026 Raphael Scapolan — Conçu &amp; développé avec soin.</p>
         </div>
     </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
