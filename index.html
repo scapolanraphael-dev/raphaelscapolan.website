@@ -3,236 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio de Raphael Scapolan - Développeur Senior .NET/WPF, Architecture logicielle & Intégration IA">
-    <title>Raphael Scapolan — Développeur Senior .NET / Architecture & IA</title>
+    <meta name="description" content="Raphael Scapolan — Développeur Senior .NET, architecte logiciel et chercheur. Confiance, sérénité, curiosité.">
+    <title>Raphael Scapolan — Développeur Senior .NET · Architecte · Chercheur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#hero" class="nav-logo">RS<span>.</span></a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#experience">Expérience</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#expertise">Expertise</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-mark">
+                <span class="mark-dot"></span>
+                <span class="mark-text">Raphael Scapolan</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about"><em>01</em> Profil</a></li>
+                <li><a href="#philosophy"><em>02</em> Approche</a></li>
+                <li><a href="#experience"><em>03</em> Parcours</a></li>
+                <li><a href="#skills"><em>04</em> Stack</a></li>
+                <li><a href="#contact"><em>05</em> Contact</a></li>
             </ul>
-            <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
-                    <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1zm0 17a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1zM5.6 5.6a1 1 0 0 1 1.4 0l1.4 1.4A1 1 0 0 1 7 8.4L5.6 7a1 1 0 0 1 0-1.4zm10 10a1 1 0 0 1 1.4 0l1.4 1.4a1 1 0 0 1-1.4 1.4L15.6 17a1 1 0 0 1 0-1.4zM2 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1zm17 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1zM5.6 18.4a1 1 0 0 1 0-1.4L7 15.6A1 1 0 0 1 8.4 17l-1.4 1.4a1 1 0 0 1-1.4 0zm10-10a1 1 0 0 1 0-1.4L17 5.6A1 1 0 0 1 18.4 7l-1.4 1.4a1 1 0 0 1-1.4 0z"/></svg>
-                    <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12.3 2.3a1 1 0 0 0-1.1 1.3 7 7 0 0 1-9.1 9.1 1 1 0 0 0-1.3 1.1A10 10 0 1 0 12.3 2.3z"/></svg>
-                </button>
-                <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-            </div>
+            <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span></button>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="hero" id="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <p class="hero-eyebrow">Développeur Senior · Architecture · IA</p>
-            <h1 class="hero-title">Raphael <span class="gradient-text">Scapolan</span></h1>
-            <p class="hero-subtitle">
-                Je conçois et modernise des systèmes logiciels complexes — de l'ERP à grande échelle
-                à l'intégration d'IA générative dans les workflows métier.
-            </p>
-            <div class="hero-cta">
-                <a href="#experience" class="btn btn-primary">Voir mon parcours</a>
-                <a href="#contact" class="btn btn-ghost">Me contacter</a>
+    <!-- HERO : split asymétrique -->
+    <header class="hero" id="top">
+        <div class="hero-grid">
+            <div class="hero-left">
+                <p class="hero-kicker">
+                    <span class="dot"></span> Disponible pour échanger
+                </p>
+                <h1 class="hero-title">
+                    <span class="line-1">Développeur</span>
+                    <span class="line-2"><em>&amp; chercheur</em></span>
+                    <span class="line-3">.NET / Architecture</span>
+                </h1>
+                <p class="hero-lede">
+                    Je conçois des systèmes logiciels qui durent — avec la rigueur d'un scientifique
+                    et le calme d'un artisan.
+                </p>
+                <div class="hero-actions">
+                    <a href="#experience" class="btn btn-ink">Découvrir mon parcours →</a>
+                    <a href="#contact" class="btn btn-outline">Prendre contact</a>
+                </div>
             </div>
-            <div class="hero-stats">
-                <div class="stat"><span class="stat-num">11</span><span class="stat-label">ans d'expérience</span></div>
-                <div class="stat"><span class="stat-num">400k+</span><span class="stat-label">utilisateurs ERP</span></div>
-                <div class="stat"><span class="stat-num">PhD</span><span class="stat-label">modélisation num.</span></div>
+
+            <aside class="hero-right">
+                <div class="card-meta">
+                    <div class="meta-row">
+                        <span class="meta-key">Basé à</span>
+                        <span class="meta-val">Rouen, Normandie</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-key">Disciplines</span>
+                        <span class="meta-val">.NET · WPF · Architecture · IA</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-key">Formation</span>
+                        <span class="meta-val">Docteur — Modélisation numérique</span>
+                    </div>
+                    <div class="meta-row">
+                        <span class="meta-key">Expérience</span>
+                        <span class="meta-val">10+ ans · ERP 20 000 utilisateurs</span>
+                    </div>
+                </div>
+
+                <blockquote class="hero-quote">
+                    <p>« La meilleure architecture est celle qui se laisse oublier — parce qu'elle ne trahit jamais. »</p>
+                </blockquote>
+            </aside>
+        </div>
+
+        <div class="hero-marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>C#</span><span>·</span><span>WPF</span><span>·</span><span>Azure</span><span>·</span>
+                <span>Architecture</span><span>·</span><span>IA</span><span>·</span><span>HPC</span><span>·</span>
+                <span>C++</span><span>·</span><span>Python</span><span>·</span><span>MPI</span><span>·</span>
+                <span>Specflow</span><span>·</span><span>Recherche</span><span>·</span>
+                <span>C#</span><span>·</span><span>WPF</span><span>·</span><span>Azure</span><span>·</span>
+                <span>Architecture</span><span>·</span><span>IA</span><span>·</span><span>HPC</span><span>·</span>
+                <span>C++</span><span>·</span><span>Python</span><span>·</span><span>MPI</span><span>·</span>
+                <span>Specflow</span><span>·</span><span>Recherche</span><span>·</span>
             </div>
         </div>
-        <a href="#about" class="scroll-hint" aria-label="Défiler"><span></span></a>
     </header>
 
     <main>
-        <!-- About -->
-        <section class="section" id="about">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-tag">01 — À propos</span>
-                    <h2>Du calcul haute performance à l'architecture d'entreprise</h2>
+        <!-- 01 — PROFIL : crème -->
+        <section class="band band-cream" id="about">
+            <div class="wrap">
+                <div class="band-head">
+                    <span class="num">01</span>
+                    <h2 class="band-title">Le profil <em>en deux mots.</em></h2>
                 </div>
-                <div class="about-grid">
-                    <div class="about-text reveal">
-                        <p>
-                            Développeur avec <strong>plus de 10 ans d'expérience</strong>, je m'appuie sur une formation
-                            scientifique solide (doctorat en modélisation numérique) pour concevoir des architectures
-                            logicielles robustes et performantes.
+
+                <div class="profile-grid">
+                    <div class="profile-text reveal">
+                        <p class="lede">
+                            Développeur avec <strong>plus de dix ans d'expérience</strong>, je m'appuie sur une formation
+                            scientifique — un doctorat en modélisation numérique — pour concevoir des architectures
+                            logicielles robustes, intelligibles et qui vieillissent bien.
                         </p>
                         <p>
-                            Expert <strong>C# / WPF</strong> et écosystème <strong>Azure</strong>, je modernise les
-                            applications legacy et intègre l'<strong>IA générative</strong> au cœur des processus métier,
-                            au sein d'équipes Agile à grande échelle.
+                            Expert C# / WPF dans l'écosystème Azure, je modernise des applications legacy et intègre
+                            l'IA générative au cœur des processus métier, au sein d'équipes Agile à grande échelle.
                         </p>
+                    </div>
+
+                    <div class="profile-side">
+                        <div class="figure reveal">
+                            <span class="figure-num">10<sup>+</sup></span>
+                            <span class="figure-lbl">années d'expérience</span>
+                        </div>
+                        <div class="figure reveal">
+                            <span class="figure-num">20k</span>
+                            <span class="figure-lbl">utilisateurs servis</span>
+                        </div>
+                        <div class="figure reveal">
+                            <span class="figure-num">PhD</span>
+                            <span class="figure-lbl">modélisation numérique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 — PHILOSOPHIE : sauge (sérénité) -->
+        <section class="band band-sage" id="philosophy">
+            <div class="wrap">
+                <div class="band-head">
+                    <span class="num">02</span>
+                    <h2 class="band-title">L'approche <em>en trois valeurs.</em></h2>
+                </div>
+
+                <div class="values">
+                    <article class="value-card reveal">
+                        <span class="value-tag">Confiance</span>
+                        <h3>Code fiable, parole tenue.</h3>
                         <p>
-                            Au-delà de la technique, je crois à un développement <strong>serein et humain</strong> :
-                            écoute, humilité et pondération. Et toujours cette <strong>curiosité de chercheur</strong>
-                            qui me pousse à explorer, comprendre en profondeur et innover.
+                            Architecture pensée pour durer, tests automatisés (Specflow / Reqnroll), revue rigoureuse.
+                            On ne livre pas ce qu'on ne maîtrise pas.
+                        </p>
+                    </article>
+
+                    <article class="value-card reveal">
+                        <span class="value-tag">Sérénité</span>
+                        <h3>Écoute, humilité, pondération.</h3>
+                        <p>
+                            Avant la ligne de code, il y a la conversation. Comprendre le besoin, doser la complexité,
+                            préserver la santé de l'équipe : la performance durable passe par là.
+                        </p>
+                    </article>
+
+                    <article class="value-card reveal">
+                        <span class="value-tag">Curiosité</span>
+                        <h3>L'âme d'un chercheur.</h3>
+                        <p>
+                            Issu de la recherche, je creuse jusqu'aux racines des problèmes. Veille active sur l'IA,
+                            les MCPs, le HPC : un terrain de jeu permanent pour penser autrement.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 — PARCOURS : encre (confiance) -->
+        <section class="band band-ink" id="experience">
+            <div class="wrap">
+                <div class="band-head">
+                    <span class="num">03</span>
+                    <h2 class="band-title">Le parcours <em>en quatre étapes.</em></h2>
+                </div>
+
+                <div class="exp-list">
+                    <article class="exp reveal">
+                        <header class="exp-head">
+                            <span class="exp-year">2015 — auj.</span>
+                            <span class="exp-pill">En poste</span>
+                        </header>
+                        <h3 class="exp-title">Développeur Senior .NET / WPF — Architecture &amp; IA</h3>
+                        <p class="exp-org">CCB · Édition multimédia internationale &nbsp;—&nbsp; Rouen</p>
+                        <p class="exp-desc">
+                            Développement et maintenance de l'ERP propriétaire (80 filiales, 20 000+ utilisateurs).
+                            Organisation Agile à grande échelle (300+ collaborateurs), équipe de 10, CI/CD et
+                            développement assisté par IA.
+                        </p>
+                        <ul class="exp-points">
+                            <li><b>Migration majeure (5 ans).</b> Refonte de l'ERP historique Access/VBA vers C# / WPF.</li>
+                            <li><b>Core ERP &amp; E-Commerce.</b> Module d'achats intégré, flux cXML avec les fournisseurs majeurs.</li>
+                            <li><b>Architecture &amp; Qualité.</b> Client lourd + serveur (Azure Service Bus), tests automatisés.</li>
+                            <li><b>Intégration IA.</b> Automatisation achats / factures, matching commandes vs factures.</li>
+                            <li><b>R&amp;D interne.</b> Outillage, MCPs pour indexation de codebases, intégration GitLab / Redmine.</li>
+                        </ul>
+                        <p class="exp-stack">C# · WPF · SQL · PowerShell · Azure Service Bus · Specflow · CI/CD · Copilot · Claude · GPT</p>
+                    </article>
+
+                    <article class="exp reveal">
+                        <header class="exp-head">
+                            <span class="exp-year">2014 — 2015</span>
+                        </header>
+                        <h3 class="exp-title">Ingénieur Calcul</h3>
+                        <p class="exp-org">Akka Technologies (pour Schneider Electric) &nbsp;—&nbsp; Grenoble</p>
+                        <p class="exp-desc">
+                            Prestation en calcul scientifique : modélisation électromagnétique de contacteurs,
+                            études de tolérancement, pilotage et parallélisation des calculs via Python.
+                        </p>
+                        <p class="exp-stack">Python · Flux · Électromagnétisme</p>
+                    </article>
+
+                    <article class="exp reveal">
+                        <header class="exp-head">
+                            <span class="exp-year">2010 — 2014</span>
+                            <span class="exp-pill exp-pill-alt">Doctorat</span>
+                        </header>
+                        <h3 class="exp-title">Docteur — Modélisation numérique &amp; électromagnétisme</h3>
+                        <p class="exp-org">SIMAP, Laboratoire de Recherche sur les Matériaux &nbsp;—&nbsp; Grenoble</p>
+                        <p class="exp-desc">
+                            Modélisation électromagnétique 3D d'inducteurs multibrins — développement d'une méthode
+                            intégrale parallélisée. Conception architecturale et implémentation d'un solveur natif HPC.
+                            Conférences internationales et publications.
+                        </p>
+                        <p class="exp-stack">C++ · MPI · Python · MATLAB · Flux3D · FEA</p>
+                    </article>
+
+                    <article class="exp reveal">
+                        <header class="exp-head">
+                            <span class="exp-year">2009 — 2010</span>
+                        </header>
+                        <h3 class="exp-title">Stages de recherche</h3>
+                        <p class="exp-org">CEA-Leti · LAPTH &nbsp;—&nbsp; Grenoble / Annecy</p>
+                        <p class="exp-desc">
+                            CEA-Leti : modélisation d'électrodes de stimulation rétinienne (COMSOL &amp; MATLAB).
+                            LAPTH : calcul de probabilité de désintégration du boson de Higgs (C++).
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 — STACK : crème -->
+        <section class="band band-cream" id="skills">
+            <div class="wrap">
+                <div class="band-head">
+                    <span class="num">04</span>
+                    <h2 class="band-title">Le stack <em>au quotidien.</em></h2>
+                </div>
+
+                <div class="stack-grid">
+                    <div class="stack-block reveal">
+                        <h3 class="stack-title">Langages</h3>
+                        <ul class="stack-list">
+                            <li><span>C#</span><i>Expert · 10 ans</i></li>
+                            <li><span>C++</span><i>Avancé · HPC, MPI</i></li>
+                            <li><span>Python</span><i>Avancé · automatisation, calcul</i></li>
+                            <li><span>SQL</span><i>Confirmé</i></li>
+                            <li><span>PowerShell</span><i>Confirmé · outillage</i></li>
+                        </ul>
+                    </div>
+
+                    <div class="stack-block reveal">
+                        <h3 class="stack-title">Frameworks &amp; Outils</h3>
+                        <div class="tags">
+                            <span>WPF</span><span>.NET</span><span>Azure Service Bus</span>
+                            <span>Specflow</span><span>Reqnroll</span><span>GitLab CI/CD</span>
+                            <span>MPI</span><span>Flux3D</span><span>MATLAB</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-block reveal stack-curious">
+                        <h3 class="stack-title">IA &amp; Recherche</h3>
+                        <div class="tags">
+                            <span>GitHub Copilot</span><span>Claude</span><span>GPT</span>
+                            <span>Gemini</span><span>MCP</span><span>HPC</span>
+                            <span>FEA</span><span>Méthodes intégrales</span>
+                        </div>
+                    </div>
+
+                    <div class="stack-block reveal">
+                        <h3 class="stack-title">Méthodes</h3>
+                        <div class="tags">
+                            <span>Architecture logicielle</span><span>Agile à l'échelle</span>
+                            <span>BDD / TDD</span><span>Mentorat</span><span>Leadership technique</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 — CONTACT : encre -->
+        <section class="band band-ink band-contact" id="contact">
+            <div class="wrap">
+                <div class="contact-grid">
+                    <div class="contact-text reveal">
+                        <span class="num num-light">05</span>
+                        <h2 class="band-title">Travaillons <em>ensemble.</em></h2>
+                        <p>
+                            Question, projet, opportunité — la première étape est toujours une conversation.
+                            Je réponds sous 48 h.
                         </p>
                     </div>
-                    <div class="about-highlights reveal">
-                        <div class="highlight"><span class="highlight-icon">🛡️</span><div><h4>Confiance</h4><p>Code fiable, architectures éprouvées</p></div></div>
-                        <div class="highlight"><span class="highlight-icon">🌿</span><div><h4>Sérénité</h4><p>Écoute, humilité & pondération</p></div></div>
-                        <div class="highlight"><span class="highlight-icon">🔭</span><div><h4>Curiosité</h4><p>Une âme de chercheur</p></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience -->
-        <section class="section section-alt" id="experience">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-tag">02 — Parcours</span>
-                    <h2>Expérience professionnelle</h2>
-                </div>
-
-                <div class="timeline">
-                    <article class="timeline-item reveal">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-card">
-                            <div class="tl-head">
-                                <h3>Développeur Senior .NET / WPF — Intégration IA & Architecture</h3>
-                                <span class="badge badge-now">En poste</span>
-                            </div>
-                            <p class="tl-meta">CCB · Édition multimédia internationale &nbsp;•&nbsp; oct. 2015 → Aujourd'hui &nbsp;•&nbsp; Rouen (Hybride)</p>
-                            <p class="tl-desc">Développement et maintenance de l'ERP propriétaire (80 filiales, 400 000+ utilisateurs) au sein d'une organisation Agile à grande échelle (500+ collaborateurs). Équipe de 10 personnes, environnement CI/CD et développement assisté par IA.</p>
-                            <ul class="tl-list">
-                                <li><strong>Migration majeure (5 ans) :</strong> refonte et migration de l'ERP historique (Access/VBA) vers C# / WPF.</li>
-                                <li><strong>Core ERP & E-Commerce :</strong> module d'achats intégré et interconnexion e-commerce (flux cXML).</li>
-                                <li><strong>Architecture & Qualité :</strong> client lourd + serveur (Azure Service Bus), tests automatisés (Specflow / Reqnroll).</li>
-                                <li><strong>Intégration IA :</strong> traitement automatisé de données (achats, factures) et matching commandes/factures.</li>
-                                <li><strong>R&D interne :</strong> outils de productivité, MCPs pour l'indexation de codebases, intégration GitLab/Redmine.</li>
-                            </ul>
-                            <div class="tl-tags">
-                                <span>C#</span><span>WPF</span><span>SQL</span><span>PowerShell</span><span>Azure Service Bus</span><span>Specflow</span><span>CI/CD</span><span>GitHub Copilot</span><span>Claude</span><span>GPT</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="timeline-item reveal">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-card">
-                            <div class="tl-head">
-                                <h3>Ingénieur Calcul</h3>
-                            </div>
-                            <p class="tl-meta">Akka Technologies (pour Schneider Electric) &nbsp;•&nbsp; nov. 2014 → juil. 2015 &nbsp;•&nbsp; Grenoble</p>
-                            <p class="tl-desc">Prestation en calcul scientifique : modélisation électromagnétique de contacteurs et études de tolérancement. Pilotage et parallélisation des calculs via scripts Python.</p>
-                            <div class="tl-tags"><span>Python</span><span>Flux</span><span>Électromagnétisme</span></div>
-                        </div>
-                    </article>
-
-                    <article class="timeline-item reveal">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-card">
-                            <div class="tl-head">
-                                <h3>Docteur (PhD) — Modélisation Numérique & Électromagnétisme</h3>
-                            </div>
-                            <p class="tl-meta">SIMAP, Laboratoire de Recherche sur les Matériaux &nbsp;•&nbsp; nov. 2010 → nov. 2014 &nbsp;•&nbsp; Grenoble</p>
-                            <p class="tl-desc">Modélisation électromagnétique 3D d'inducteurs multibrins — développement d'une méthode intégrale parallélisée.</p>
-                            <ul class="tl-list">
-                                <li><strong>Développement logiciel :</strong> conception et implémentation d'un solveur électromagnétique nativement parallèle.</li>
-                                <li><strong>Algorithmes :</strong> méthode numérique innovante pour géométries complexes (HPC).</li>
-                                <li><strong>Valorisation :</strong> conférences internationales et publications scientifiques.</li>
-                            </ul>
-                            <div class="tl-tags"><span>C++</span><span>MPI</span><span>Python</span><span>MATLAB</span><span>Flux3D</span><span>FEA</span></div>
-                        </div>
-                    </article>
-
-                    <article class="timeline-item reveal">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-card">
-                            <div class="tl-head"><h3>Stages de Recherche</h3></div>
-                            <p class="tl-meta">CEA-Leti (2010) · LAPTH (2009) &nbsp;•&nbsp; Grenoble / Annecy</p>
-                            <ul class="tl-list">
-                                <li><strong>CEA-Leti :</strong> modélisation d'électrodes de stimulation rétinienne (COMSOL & MATLAB).</li>
-                                <li><strong>LAPTH :</strong> calcul de la probabilité de désintégration du boson de Higgs (C++).</li>
-                            </ul>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills -->
-        <section class="section" id="skills">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-tag">03 — Stack</span>
-                    <h2>Compétences techniques</h2>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-card reveal">
-                        <h3>Langages</h3>
-                        <div class="bar"><span class="bar-label">C#</span><div class="bar-track"><i style="--w:95%"></i></div></div>
-                        <div class="bar"><span class="bar-label">C++</span><div class="bar-track"><i style="--w:80%"></i></div></div>
-                        <div class="bar"><span class="bar-label">Python</span><div class="bar-track"><i style="--w:80%"></i></div></div>
-                        <div class="bar"><span class="bar-label">SQL</span><div class="bar-track"><i style="--w:70%"></i></div></div>
-                        <div class="bar"><span class="bar-label">PowerShell</span><div class="bar-track"><i style="--w:65%"></i></div></div>
-                    </div>
-                    <div class="skill-card reveal">
-                        <h3>Frameworks & Outils</h3>
-                        <div class="chips">
-                            <span>WPF</span><span>.NET</span><span>Azure Service Bus</span><span>Specflow</span>
-                            <span>Reqnroll</span><span>GitLab</span><span>CI/CD</span><span>MPI</span><span>Flux3D</span>
-                        </div>
-                    </div>
-                    <div class="skill-card reveal">
-                        <h3>IA & Calcul</h3>
-                        <div class="chips">
-                            <span>GitHub Copilot</span><span>Claude</span><span>GPT</span><span>Gemini</span>
-                            <span>MCP</span><span>HPC</span><span>MATLAB</span><span>FEA</span>
-                        </div>
-                    </div>
-                    <div class="skill-card reveal">
-                        <h3>Méthodes</h3>
-                        <div class="chips">
-                            <span>Architecture logicielle</span><span>Agile à grande échelle</span>
-                            <span>BDD / TDD</span><span>Leadership technique</span><span>Mentorat</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Expertise -->
-        <section class="section section-alt" id="expertise">
-            <div class="container">
-                <div class="section-head reveal">
-                    <span class="section-tag">04 — Valeur ajoutée</span>
-                    <h2>Domaines d'expertise</h2>
-                </div>
-                <div class="expertise-grid">
-                    <div class="exp-card reveal"><span class="exp-icon">🏛️</span><h3>Architecture logicielle</h3><p>Conception de systèmes scalables, modernisation de legacy, architecture client/serveur distribuée.</p></div>
-                    <div class="exp-card reveal"><span class="exp-icon">🤖</span><h3>Intégration IA</h3><p>Automatisation intelligente, aide à la décision, développement de MCPs et outillage IA interne.</p></div>
-                    <div class="exp-card curious reveal"><span class="exp-icon">🔬</span><h3>Recherche & Calcul HPC</h3><p>Modélisation numérique, parallélisation (MPI), méthodes intégrales et éléments finis — une approche de chercheur.</p></div>
-                    <div class="exp-card reveal"><span class="exp-icon">🧪</span><h3>Qualité & Testing</h3><p>Tests automatisés, BDD (Specflow / Reqnroll), architecture testable et CI/CD.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact -->
-        <section class="section" id="contact">
-            <div class="container">
-                <div class="contact-card reveal">
-                    <span class="section-tag">05 — Contact</span>
-                    <h2>Travaillons ensemble</h2>
-                    <p>Une question, un projet, une opportunité ? N'hésitez pas à me contacter.</p>
-                    <div class="contact-links">
-                        <a href="mailto:contact@raphaelscapolan.fr" class="contact-link"><span>✉️</span> contact@raphaelscapolan.fr</a>
-                        <a href="https://github.com/scapolanraphael-dev" target="_blank" rel="noopener" class="contact-link"><span>💻</span> GitHub</a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="contact-link"><span>💼</span> LinkedIn</a>
+                    <div class="contact-links reveal">
+                        <a href="mailto:contact@raphaelscapolan.fr" class="c-link">
+                            <span class="c-key">Email</span>
+                            <span class="c-val">contact@raphaelscapolan.fr →</span>
+                        </a>
+                        <a href="https://github.com/scapolanraphael-dev" target="_blank" rel="noopener" class="c-link">
+                            <span class="c-key">Code</span>
+                            <span class="c-val">github.com/scapolanraphael-dev →</span>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="c-link">
+                            <span class="c-key">Pro</span>
+                            <span class="c-val">LinkedIn →</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -240,8 +325,10 @@
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>© 2026 Raphael Scapolan — Conçu &amp; développé avec soin.</p>
+        <div class="wrap footer-inner">
+            <span>© 2026 Raphael Scapolan</span>
+            <span class="foot-sep">·</span>
+            <span>Conçu &amp; développé avec soin à Rouen</span>
         </div>
     </footer>
 
