@@ -8,19 +8,34 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --bg:    #0d1117;
-  --bg2:   #161b22;
-  --bg3:   #21262d;
-  --bdr:   #30363d;
-  --tx:    #c9d1d9;
-  --muted: #a0aab5;
-  --green: #3fb950;
-  --blue:  #58a6ff;
-  --amber: #ffa657;
-  --purp:  #bc8cff;
-  --red:   #ff7b72;
-  --mono:  'JetBrains Mono', 'Courier New', monospace;
-  --sans:  'Inter', system-ui, sans-serif;
+  --bg:       #0d1117;
+  --bg2:      #161b22;
+  --bg3:      #21262d;
+  --bdr:      #30363d;
+  --tx:       #c9d1d9;
+  --muted:    #a0aab5;
+  --green:    #3fb950;
+  --blue:     #58a6ff;
+  --amber:    #ffa657;
+  --purp:     #bc8cff;
+  --red:      #ff7b72;
+  --bg-glass: rgba(13,17,23,.96);
+  --mono:     'JetBrains Mono', 'Courier New', monospace;
+  --sans:     'Inter', system-ui, sans-serif;
+}
+[data-theme="light"] {
+  --bg:       #f6f8fa;
+  --bg2:      #ffffff;
+  --bg3:      #eaeef2;
+  --bdr:      #d0d7de;
+  --tx:       #1f2328;
+  --muted:    #57606a;
+  --green:    #1a7f37;
+  --blue:     #0969da;
+  --amber:    #9a6700;
+  --purp:     #8250df;
+  --red:      #cf222e;
+  --bg-glass: rgba(246,248,250,.97);
 }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-size: 16px; line-height: 1.75; }
@@ -28,7 +43,7 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
 /* TOPBAR */
 .topbar {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(13,17,23,.96); border-bottom: 1px solid var(--bdr);
+  background: var(--bg-glass); border-bottom: 1px solid var(--bdr);
   display: flex; align-items: center; padding: 0 2rem; height: 48px;
   backdrop-filter: blur(8px); font-family: var(--mono); font-size: 12px;
 }
@@ -42,6 +57,12 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
   transition: color .2s, background .2s; border-left: 1px solid var(--bdr);
 }
 .topbar-nav a:hover { color: var(--green); background: var(--bg3); }
+.theme-toggle {
+  font-family: var(--mono); font-size: 13px; background: none; border: 1px solid var(--bdr);
+  color: var(--muted); cursor: pointer; padding: 0 .9rem; height: 28px;
+  border-radius: 4px; margin-left: 1rem; transition: all .2s; line-height: 1;
+}
+.theme-toggle:hover { color: var(--tx); border-color: var(--tx); }
 
 /* HERO */
 .hero { min-height: 100vh; display: flex; align-items: center; padding: 80px 2rem 4rem; }
@@ -153,6 +174,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
     <a href="#skills">stack</a>
     <a href="#contact">contact</a>
   </div>
+  <button class="theme-toggle" id="themeToggle" title="Changer de thème">☀</button>
 </nav>
 
 <section class="hero">
@@ -399,6 +421,18 @@ document.querySelectorAll('.exp-toggle').forEach(btn => {
     const open = more.classList.toggle('open');
     btn.textContent = open ? '▾ réduire' : '▸ voir plus';
   });
+});
+
+const toggle = document.getElementById('themeToggle');
+const saved = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', saved);
+toggle.textContent = saved === 'dark' ? '☀' : '☾';
+
+toggle.addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  toggle.textContent = next === 'dark' ? '☀' : '☾';
 });
 </script>
 </body>
