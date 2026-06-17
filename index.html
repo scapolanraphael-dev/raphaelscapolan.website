@@ -167,7 +167,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
 .hamburger {
   display: none; background: none; border: 1px solid var(--bdr);
   color: var(--muted); cursor: pointer; width: 36px; height: 28px;
-  border-radius: 4px; margin-left: .75rem; font-size: 16px;
+  border-radius: 4px; margin-right: .75rem; font-size: 16px;
   align-items: center; justify-content: center; flex-shrink: 0;
   font-family: var(--mono); transition: all .2s;
 }
@@ -195,6 +195,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
 <body>
 
 <nav class="topbar">
+  <button class="hamburger" id="hamburger" title="Menu">☰</button>
   <span class="topbar-name">Raphaël Scapolan</span>
   <div class="topbar-nav" id="topbarNav">
     <a href="#about">profil</a>
@@ -202,7 +203,6 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
     <a href="#skills">stack</a>
     <a href="#contact">contact</a>
   </div>
-  <button class="hamburger" id="hamburger" title="Menu">☰</button>
   <button class="theme-toggle" id="themeToggle" title="Changer de thème">☀</button>
 </nav>
 
