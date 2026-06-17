@@ -111,7 +111,7 @@ Modeling of a part of a multistrands inductor (3x6 wires) with ModeLitz](image-4
 ---
 
 ### 4. Research Internship
-![logo CEA](image-7.png)
+![alt text](image-9.png)
 **Organisation :** CEA, Leti  
 **Durée :** mars 2010 - août 2010 (6 mois)  
 **Localisation :** Grenoble | Sur site
