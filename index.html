@@ -39,7 +39,7 @@
 }
 html { scroll-behavior: smooth; }
 html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after {
-  transition: background-color .5s ease, color .45s ease, border-color .5s ease, box-shadow .5s ease !important;
+  transition: background-color .9s ease, color .8s ease, border-color .9s ease, box-shadow .9s ease !important;
 }
 body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-size: 16px; line-height: 1.75; }
 
@@ -62,8 +62,9 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
 .topbar-nav a:hover { color: var(--green); background: var(--bg3); }
 .theme-toggle {
   font-family: var(--mono); font-size: 20px; background: none; border: 1px solid var(--bdr);
-  color: var(--muted); cursor: pointer; padding: 0 .9rem; height: 28px;
+  color: var(--muted); cursor: pointer; width: 36px; height: 28px; padding: 0;
   border-radius: 4px; margin-left: 1rem; transition: all .2s; line-height: 1;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
 }
 .theme-toggle:hover { color: var(--tx); border-color: var(--tx); }
 
@@ -452,7 +453,7 @@ toggle.addEventListener('click', () => {
   html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
   toggle.textContent = next === 'dark' ? '☀' : '☾';
-  setTimeout(() => html.classList.remove('theme-fade'), 600);
+  setTimeout(() => html.classList.remove('theme-fade'), 1000);
 });
 </script>
 </body>
