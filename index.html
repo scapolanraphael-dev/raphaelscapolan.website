@@ -168,21 +168,41 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
   .about-grid, .contact-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
   .topbar-nav { display: none; }
+  .topbar-nav.open {
+    display: flex; flex-direction: column;
+    position: fixed; top: 48px; left: 0; right: 0;
+    background: var(--bg-glass); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--bdr); z-index: 99;
+  }
+  .topbar-nav.open a {
+    border-left: none; border-top: 1px solid var(--bdr);
+    height: 44px; padding: 0 1.5rem;
+  }
   .topbar-name { font-size: 11px; }
   .sec, .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .hamburger { display: flex; }
 }
+.hamburger {
+  display: none; background: none; border: 1px solid var(--bdr);
+  color: var(--muted); cursor: pointer; width: 36px; height: 28px;
+  border-radius: 4px; margin-left: .75rem; font-size: 16px;
+  align-items: center; justify-content: center; flex-shrink: 0;
+  font-family: var(--mono); transition: all .2s;
+}
+.hamburger:hover { color: var(--tx); border-color: var(--tx); }
 </style>
 </head>
 <body>
 
 <nav class="topbar">
   <span class="topbar-name">Raphaël Scapolan</span>
-  <div class="topbar-nav">
+  <div class="topbar-nav" id="topbarNav">
     <a href="#about">profil</a>
     <a href="#experience">parcours</a>
     <a href="#skills">stack</a>
     <a href="#contact">contact</a>
   </div>
+  <button class="hamburger" id="hamburger" title="Menu">☰</button>
   <button class="theme-toggle" id="themeToggle" title="Changer de thème">☀</button>
 </nav>
 
@@ -435,6 +455,19 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
 </footer>
 
 <script>
+const hamburger = document.getElementById('hamburger');
+const topbarNav = document.getElementById('topbarNav');
+hamburger.addEventListener('click', () => {
+  const open = topbarNav.classList.toggle('open');
+  hamburger.textContent = open ? '✕' : '☰';
+});
+topbarNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    topbarNav.classList.remove('open');
+    hamburger.textContent = '☰';
+  });
+});
+
 document.querySelectorAll('.exp-toggle').forEach(btn => {
   btn.addEventListener('click', () => {
     const more = btn.previousElementSibling;
