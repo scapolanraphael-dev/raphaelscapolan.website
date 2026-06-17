@@ -79,6 +79,8 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
 .hero-name .n-blue { color: var(--blue); }
 .hero-name .n-green { color: var(--green); }
 .hero-role { font-family: var(--mono); font-size: clamp(.9rem,2vw,1.25rem); color: var(--amber); margin-top: .5rem; font-weight: 400; }
+.hero-role::before { content: '{ '; color: var(--green); font-weight: 300; }
+.hero-role::after { content: ' }'; color: var(--green); font-weight: 300; }
 .hero-desc { max-width: 560px; color: var(--muted); margin-top: 1.5rem; font-size: 14.5px; border-left: 2px solid var(--bdr); padding-left: 1.2rem; }
 .hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; font-family: var(--mono); font-size: 14px; }
 .meta-pair { display: flex; flex-direction: column; gap: .2rem; }
@@ -211,7 +213,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
     <h1 class="hero-name">
       <span class="n-blue">Raphaël</span>&nbsp;<span class="n-green">Scapolan</span>
     </h1>
-    <p class="hero-role">{ Développeur Senior .NET · Architecture · PhD · IA }</p>
+    <p class="hero-role">Développeur Senior .NET · Architecture · PhD · IA</p>
     <p class="hero-desc">
       10 ans sur un ERP 3-tier à 400 000+ utilisateurs.
       </br>
