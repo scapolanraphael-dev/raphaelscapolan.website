@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raphaël Scapolan · Éditorial</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:    #ffffff;
+  --bg2:   #f3f4f6;
+  --tx:    #0d0d0d;
+  --muted: #6b7280;
+  --blue:  #1c4ed8;
+  --lblue: #eff6ff;
+  --amber: #d97706;
+  --lamber:#fef3c7;
+  --bdr:   #e5e7eb;
+  --disp:  'Syne', sans-serif;
+  --body:  'DM Sans', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--tx); font-family: var(--body); font-size: 16px; line-height: 1.65; }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,.94); border-bottom: 1px solid var(--bdr);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 3rem; height: 56px; backdrop-filter: blur(8px);
+}
+.nav-logo { font-family: var(--disp); font-weight: 800; font-size: 15px; letter-spacing: -.03em; color: var(--tx); text-decoration: none; }
+.nav-links { display: flex; }
+.nav-links a {
+  font-family: var(--disp); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .09em;
+  color: var(--muted); text-decoration: none;
+  padding: 0 1.1rem; height: 56px; display: flex; align-items: center;
+  transition: color .15s;
+}
+.nav-links a:hover { color: var(--tx); }
+
+/* HERO */
+.hero {
+  padding: 110px 3rem 0; max-width: 1100px; margin: 0 auto;
+  border-bottom: 2.5px solid var(--tx);
+}
+.hero-kicker {
+  display: flex; align-items: center; gap: .6rem;
+  font-family: var(--disp); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .14em; color: var(--blue);
+  margin-bottom: 1.8rem;
+}
+.kicker-bar { width: 24px; height: 2px; background: var(--blue); }
+.hero-name {
+  font-family: var(--disp); font-weight: 800;
+  font-size: clamp(3.2rem,8.5vw,7.5rem); line-height: .93; letter-spacing: -.05em;
+}
+.hero-name .outline { color: transparent; -webkit-text-stroke: 2.5px var(--tx); }
+.hero-sub {
+  font-family: var(--disp); font-size: clamp(1rem,2vw,1.35rem); font-weight: 500;
+  color: var(--muted); margin-top: 1.6rem; max-width: 580px; line-height: 1.45;
+}
+.hero-sub strong { color: var(--blue); font-weight: 700; }
+.hero-bar {
+  display: flex; margin-top: 3.5rem;
+  border-top: 1px solid var(--bdr);
+}
+.hbi {
+  flex: 1; padding: 1.4rem 0 1.4rem 1.5rem;
+  border-right: 1px solid var(--bdr);
+}
+.hbi:first-child { padding-left: 0; }
+.hbi:last-child { border-right: none; }
+.hbi-n {
+  font-family: var(--disp); font-weight: 800; font-size: 2.2rem;
+  letter-spacing: -.04em; display: block; line-height: 1;
+}
+.hbi-l { font-size: 12px; color: var(--muted); font-weight: 500; margin-top: .3rem; display: block; }
+.hero-actions { display: flex; gap: 1rem; padding: 2.5rem 0; flex-wrap: wrap; }
+.btn-e {
+  font-family: var(--disp); font-weight: 700; font-size: 12px;
+  text-transform: uppercase; letter-spacing: .09em;
+  padding: .85rem 2rem; text-decoration: none; border-radius: 3px; transition: all .2s;
+}
+.btn-solid { background: var(--tx); color: var(--bg); }
+.btn-solid:hover { background: var(--blue); }
+.btn-ghost { border: 2px solid var(--tx); color: var(--tx); }
+.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+/* SECTIONS */
+.sec { max-width: 1100px; margin: 0 auto; padding: 5rem 3rem; }
+.sec + .sec { border-top: 1px solid var(--bdr); }
+.sec-head { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3.5rem; }
+.sec-n {
+  font-family: var(--disp); font-weight: 800; font-size: 6rem;
+  line-height: 1; letter-spacing: -.06em; color: transparent;
+  -webkit-text-stroke: 1px var(--bdr);
+}
+.sec-t { font-family: var(--disp); font-size: 2.2rem; font-weight: 800; letter-spacing: -.04em; }
+.sec-t em { color: var(--blue); font-style: normal; }
+
+/* ABOUT */
+.about-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.about-lede { font-size: 17px; line-height: 1.7; }
+.about-lede p + p { margin-top: 1.2rem; }
+.val-stack { display: flex; flex-direction: column; gap: 1rem; }
+.val-card {
+  padding: 1.4rem 1.4rem 1.4rem 1.8rem;
+  border: 1px solid var(--bdr); border-radius: 6px;
+  border-left: 4px solid var(--blue);
+  transition: border-color .2s, box-shadow .2s;
+}
+.val-card:hover { border-left-color: var(--blue); box-shadow: 0 4px 20px rgba(0,0,0,.07); }
+.val-label {
+  font-family: var(--disp); font-weight: 700; font-size: 11.5px;
+  text-transform: uppercase; letter-spacing: .1em; color: var(--blue); margin-bottom: .35rem;
+}
+.val-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* EXPERIENCE */
+.exp-items { display: flex; flex-direction: column; }
+.exp-item { display: grid; grid-template-columns: 150px 1fr; gap: 2.5rem; padding: 2.5rem 0; border-bottom: 1px solid var(--bdr); }
+.exp-item:last-child { border-bottom: none; }
+.exp-left { padding-top: .2rem; }
+.exp-period { font-family: var(--disp); font-weight: 800; font-size: 13px; letter-spacing: -.01em; color: var(--blue); }
+.exp-badge {
+  display: inline-block; margin-top: .6rem;
+  font-family: var(--disp); font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  padding: .2rem .65rem; border-radius: 20px;
+  background: var(--lblue); color: var(--blue);
+}
+.exp-badge.amber { background: var(--lamber); color: var(--amber); }
+.exp-right h3 { font-family: var(--disp); font-weight: 700; font-size: 1.15rem; letter-spacing: -.02em; margin-bottom: .25rem; }
+.exp-org { font-size: 13px; font-weight: 500; color: var(--amber); margin-bottom: .9rem; }
+.exp-desc { font-size: 14.5px; color: var(--muted); line-height: 1.65; margin-bottom: .8rem; }
+.exp-highlights { list-style: none; display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1rem; }
+.exp-highlights li { font-size: 14px; color: var(--tx); display: flex; gap: .6rem; }
+.exp-highlights li::before { content: '→'; color: var(--blue); flex-shrink: 0; }
+.exp-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.etag {
+  font-family: var(--disp); font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em;
+  padding: .22rem .75rem; border-radius: 4px;
+  background: var(--lblue); color: var(--blue);
+}
+.etag.amber { background: var(--lamber); color: var(--amber); }
+
+/* SKILLS */
+.skills-2col { display: grid; grid-template-columns: repeat(2,1fr); gap: 2.5rem; }
+.sk-group h3 {
+  font-family: var(--disp); font-weight: 800; font-size: .75rem;
+  text-transform: uppercase; letter-spacing: .14em; color: var(--muted);
+  border-bottom: 2.5px solid var(--tx); padding-bottom: .6rem; margin-bottom: 1.2rem;
+}
+.sk-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
+.chip {
+  font-family: var(--disp); font-weight: 700; font-size: 13px;
+  padding: .45rem 1rem; border: 2px solid var(--tx); border-radius: 100px;
+  transition: all .18s; cursor: default;
+}
+.chip:hover { background: var(--tx); color: var(--bg); }
+.chip.blue-chip { border-color: var(--blue); color: var(--blue); }
+.chip.blue-chip:hover { background: var(--blue); color: var(--bg); }
+
+/* CONTACT */
+.contact-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.contact-big { font-family: var(--disp); font-weight: 800; font-size: clamp(2rem,4.5vw,3.8rem); line-height: 1.05; letter-spacing: -.05em; }
+.contact-big .c-blue { color: var(--blue); }
+.contact-sub { font-size: 15px; color: var(--muted); margin-top: 1.2rem; }
+.contact-links { display: flex; flex-direction: column; gap: 0; }
+.c-link {
+  display: flex; flex-direction: column; gap: .25rem;
+  padding: 1.4rem 0; border-bottom: 1px solid var(--bdr);
+  text-decoration: none; color: var(--tx); transition: color .2s; group: link;
+}
+.c-link:last-child { border-bottom: none; }
+.c-link:hover .c-val { color: var(--blue); }
+.c-key { font-family: var(--disp); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
+.c-val { font-family: var(--disp); font-size: 1rem; font-weight: 700; }
+.c-arrow { margin-left: .3rem; display: inline-block; transition: transform .2s; }
+.c-link:hover .c-arrow { transform: translateX(4px); }
+
+footer {
+  border-top: 2.5px solid var(--tx); max-width: 1100px; margin: 0 auto; padding: 1.5rem 3rem;
+  font-family: var(--disp); font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .09em; color: var(--muted); display: flex; justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+  .about-2col, .contact-2col, .skills-2col { grid-template-columns: 1fr; gap: 2.5rem; }
+  .exp-item { grid-template-columns: 1fr; gap: .5rem; }
+  .nav, .hero, .sec, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .hero { padding-top: 80px; }
+  .nav { padding: 0 1.5rem; }
+  .sec-n { font-size: 4rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#top" class="nav-logo">RS</a>
+  <div class="nav-links">
+    <a href="#about">Profil</a>
+    <a href="#experience">Parcours</a>
+    <a href="#skills">Stack</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-kicker">
+    <div class="kicker-bar"></div>
+    Disponible pour échanger
+  </div>
+  <h1 class="hero-name">
+    <span class="outline">Raphaël</span><br>
+    Scapolan
+  </h1>
+  <p class="hero-sub">
+    Développeur Senior .NET / WPF · <strong>Architecture logicielle &amp; IA</strong> · PhD · Rouen
+  </p>
+  <div class="hero-bar">
+    <div class="hbi"><span class="hbi-n">10<sup style="font-size:.5em">+</sup></span><span class="hbi-l">années d'exp.</span></div>
+    <div class="hbi"><span class="hbi-n">400k</span><span class="hbi-l">utilisateurs ERP</span></div>
+    <div class="hbi"><span class="hbi-n">80</span><span class="hbi-l">filiales internationales</span></div>
+    <div class="hbi"><span class="hbi-n">PhD</span><span class="hbi-l">Modélisation numérique</span></div>
+  </div>
+  <div class="hero-actions">
+    <a href="#experience" class="btn-e btn-solid">Voir mon parcours →</a>
+    <a href="#contact" class="btn-e btn-ghost">Prendre contact</a>
+  </div>
+</header>
+
+<main>
+
+  <section class="sec" id="about">
+    <div class="sec-head">
+      <span class="sec-n">01</span>
+      <h2 class="sec-t">Le profil <em>en deux mots.</em></h2>
+    </div>
+    <div class="about-2col">
+      <div class="about-lede">
+        <p>Développeur Senior .NET/WPF et Architecte logiciel, je travaille depuis 2015 sur un ERP propriétaire utilisé par 80 filiales dans le monde. Je combine une rigueur issue de la recherche scientifique — doctorat en modélisation numérique, Grenoble — avec dix ans d'expérience dans des systèmes critiques à grande échelle.</p>
+        <p>J'ai piloté une migration majeure sur 5 ans (Access/VBA → C#/WPF) et j'intègre aujourd'hui l'IA générative dans les processus métier : automatisation des achats et de la facturation, extraction intelligente et indexation de codebase.</p>
+      </div>
+      <div class="val-stack">
+        <div class="val-card">
+          <p class="val-label">Confiance</p>
+          <p class="val-text">Architecture pensée pour durer, tests automatisés, revue rigoureuse. On ne livre pas ce qu'on ne maîtrise pas.</p>
+        </div>
+        <div class="val-card">
+          <p class="val-label">Sérénité</p>
+          <p class="val-text">Écoute, humilité, pondération. Comprendre le besoin avant d'écrire la première ligne.</p>
+        </div>
+        <div class="val-card">
+          <p class="val-label">Curiosité</p>
+          <p class="val-text">L'âme d'un chercheur. Veille active sur l'IA, les MCPs, le HPC — un terrain de jeu permanent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="experience">
+    <div class="sec-head">
+      <span class="sec-n">02</span>
+      <h2 class="sec-t">Le parcours <em>en quatre étapes.</em></h2>
+    </div>
+    <div class="exp-items">
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <p class="exp-period">2015 — auj.</p>
+          <span class="exp-badge">● En poste</span>
+        </div>
+        <div class="exp-right">
+          <h3>Développeur Senior .NET / WPF — Architecture &amp; IA</h3>
+          <p class="exp-org">CCB · Édition multimédia internationale · Rouen</p>
+          <p class="exp-desc">ERP propriétaire · 80 filiales · 400 000+ utilisateurs · Organisation Agile (500+ collaborateurs) · Équipe de 10</p>
+          <ul class="exp-highlights">
+            <li><b>Migration majeure (5 ans)</b> — Refonte de l'ERP Access/VBA vers C# / WPF</li>
+            <li><b>Core ERP &amp; E-Commerce</b> — Module achats, flux cXML avec fournisseurs internationaux</li>
+            <li><b>Architecture</b> — Client lourd + Azure Service Bus, CI/CD GitLab, tests BDD</li>
+            <li><b>Intégration IA</b> — Automatisation achats/factures, extraction, MCPs pour indexation codebase</li>
+          </ul>
+          <div class="exp-tags">
+            <span class="etag">C#</span><span class="etag">WPF</span><span class="etag">Azure</span>
+            <span class="etag">Specflow</span><span class="etag">CI/CD</span>
+            <span class="etag amber">Claude</span><span class="etag amber">Copilot</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <p class="exp-period">2014 — 2015</p>
+        </div>
+        <div class="exp-right">
+          <h3>Ingénieur Calcul</h3>
+          <p class="exp-org">Akka Technologies (Schneider Electric) · Grenoble</p>
+          <p class="exp-desc">Modélisation électromagnétique de contacteurs, études de tolérancement, automatisation des calculs via Python.</p>
+          <div class="exp-tags">
+            <span class="etag">Python</span><span class="etag">Flux</span><span class="etag">Électromagnétisme</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <p class="exp-period">2010 — 2014</p>
+          <span class="exp-badge amber">Doctorat</span>
+        </div>
+        <div class="exp-right">
+          <h3>Docteur — Modélisation numérique &amp; HPC</h3>
+          <p class="exp-org">SIMAP, Laboratoire de Recherche sur les Matériaux · Grenoble</p>
+          <p class="exp-desc">Modélisation électromagnétique 3D d'inducteurs multibrins. Conception et développement d'un solveur HPC parallèle (méthode intégrale). Publications IEEE et conférences internationales.</p>
+          <div class="exp-tags">
+            <span class="etag">C++</span><span class="etag">MPI</span><span class="etag">HPC</span>
+            <span class="etag">Python</span><span class="etag">MATLAB</span><span class="etag">FEA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-left">
+          <p class="exp-period">2009 — 2010</p>
+        </div>
+        <div class="exp-right">
+          <h3>Stages de Recherche</h3>
+          <p class="exp-org">CEA-Leti · LAPTH · Grenoble / Annecy</p>
+          <p class="exp-desc">CEA-Leti : modélisation d'électrodes de stimulation rétinienne. LAPTH : calcul de la probabilité de désintégration du boson de Higgs (C++).</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="sec" id="skills">
+    <div class="sec-head">
+      <span class="sec-n">03</span>
+      <h2 class="sec-t">Le stack <em>au quotidien.</em></h2>
+    </div>
+    <div class="skills-2col">
+      <div class="sk-group">
+        <h3>Langages</h3>
+        <div class="sk-chips">
+          <span class="chip">C# / .NET</span>
+          <span class="chip">C / C++</span>
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
+          <span class="chip">PowerShell</span>
+          <span class="chip">MATLAB</span>
+        </div>
+      </div>
+      <div class="sk-group">
+        <h3>Frameworks &amp; Outils</h3>
+        <div class="sk-chips">
+          <span class="chip blue-chip">WPF</span>
+          <span class="chip blue-chip">Azure Service Bus</span>
+          <span class="chip blue-chip">Specflow</span>
+          <span class="chip blue-chip">GitLab CI/CD</span>
+          <span class="chip blue-chip">MPI</span>
+          <span class="chip blue-chip">Flux3D</span>
+        </div>
+      </div>
+      <div class="sk-group">
+        <h3>IA &amp; Recherche</h3>
+        <div class="sk-chips">
+          <span class="chip">GitHub Copilot</span>
+          <span class="chip">Claude</span>
+          <span class="chip">GPT</span>
+          <span class="chip">MCP</span>
+          <span class="chip">HPC</span>
+          <span class="chip">FEA</span>
+        </div>
+      </div>
+      <div class="sk-group">
+        <h3>Méthodes</h3>
+        <div class="sk-chips">
+          <span class="chip blue-chip">Architecture logicielle</span>
+          <span class="chip blue-chip">Agile à l'échelle</span>
+          <span class="chip blue-chip">BDD / TDD</span>
+          <span class="chip blue-chip">Migration legacy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="contact">
+    <div class="sec-head">
+      <span class="sec-n">04</span>
+      <h2 class="sec-t">Travaillons <em>ensemble.</em></h2>
+    </div>
+    <div class="contact-2col">
+      <div>
+        <p class="contact-big">Une idée ?<br><span class="c-blue">Discutons.</span></p>
+        <p class="contact-sub">Question, projet, opportunité — la première étape est toujours une conversation. Je réponds sous 48 h.</p>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:contact@raphaelscapolan.fr" class="c-link">
+          <span class="c-key">Email</span>
+          <span class="c-val">contact@raphaelscapolan.fr<span class="c-arrow">→</span></span>
+        </a>
+        <a href="https://github.com/scapolanraphael-dev" target="_blank" rel="noopener" class="c-link">
+          <span class="c-key">GitHub</span>
+          <span class="c-val">scapolanraphael-dev<span class="c-arrow">→</span></span>
+        </a>
+        <a href="https://www.linkedin.com/in/raphaël-scapolan-87812799/" target="_blank" rel="noopener" class="c-link">
+          <span class="c-key">LinkedIn</span>
+          <span class="c-val">Raphaël Scapolan<span class="c-arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2026 Raphaël Scapolan</span>
+  <span>Conçu &amp; développé à Rouen</span>
+</footer>
+
+</body>
+</html>

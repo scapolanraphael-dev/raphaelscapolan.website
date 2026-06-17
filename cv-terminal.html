@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raphaël Scapolan · Terminal</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg:    #0d1117;
+  --bg2:   #161b22;
+  --bg3:   #21262d;
+  --bdr:   #30363d;
+  --tx:    #c9d1d9;
+  --muted: #8b949e;
+  --green: #3fb950;
+  --blue:  #58a6ff;
+  --amber: #ffa657;
+  --purp:  #bc8cff;
+  --red:   #ff7b72;
+  --mono:  'JetBrains Mono', 'Courier New', monospace;
+  --sans:  'Inter', system-ui, sans-serif;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-size: 15px; line-height: 1.7; }
+
+/* TOPBAR */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(13,17,23,.96); border-bottom: 1px solid var(--bdr);
+  display: flex; align-items: center; padding: 0 2rem; height: 48px;
+  backdrop-filter: blur(8px); font-family: var(--mono); font-size: 12px;
+}
+.topbar-name { color: var(--green); margin-right: auto; }
+.topbar-name span { color: var(--muted); }
+.topbar-nav { display: flex; }
+.topbar-nav a {
+  color: var(--muted); text-decoration: none; padding: 0 1rem;
+  height: 48px; display: flex; align-items: center;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+  transition: color .2s, background .2s; border-left: 1px solid var(--bdr);
+}
+.topbar-nav a:hover { color: var(--tx); background: var(--bg3); }
+
+/* HERO */
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 80px 2rem 4rem; }
+.hero-inner { max-width: 900px; margin: 0 auto; width: 100%; }
+.hero-prompt { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-bottom: 1.5rem; }
+.hero-prompt .p-sym { color: var(--green); }
+.hero-name { font-family: var(--mono); font-size: clamp(2.5rem,6vw,5.5rem); font-weight: 700; line-height: 1.05; }
+.hero-name .n-blue { color: var(--blue); }
+.hero-name .n-green { color: var(--green); }
+.cursor { display: inline-block; width: .55em; height: .9em; background: var(--green); margin-left: .1em; vertical-align: text-bottom; animation: blink 1s step-end infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.hero-role { font-family: var(--mono); font-size: clamp(.9rem,2vw,1.25rem); color: var(--amber); margin-top: .5rem; font-weight: 400; }
+.hero-desc { max-width: 560px; color: var(--muted); margin-top: 1.5rem; font-size: 14.5px; border-left: 2px solid var(--bdr); padding-left: 1.2rem; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; font-family: var(--mono); font-size: 12px; }
+.meta-pair { display: flex; flex-direction: column; gap: .15rem; }
+.meta-k { color: var(--muted); }
+.meta-v { color: var(--green); }
+.hero-cta { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+.btn-t { font-family: var(--mono); font-size: 13px; padding: .6rem 1.4rem; border-radius: 4px; text-decoration: none; border: 1px solid; transition: all .2s; }
+.btn-primary { border-color: var(--green); color: var(--green); }
+.btn-primary:hover { background: var(--green); color: var(--bg); }
+.btn-sec { border-color: var(--bdr); color: var(--muted); }
+.btn-sec:hover { border-color: var(--blue); color: var(--blue); }
+
+/* SECTION */
+.sec { max-width: 900px; margin: 0 auto; padding: 5rem 2rem; border-top: 1px solid var(--bdr); }
+.sec-head { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .15em; color: var(--muted); display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
+.sec-head::before { content: '//'; color: var(--green); font-size: 13px; }
+.sec-head::after { content: ''; flex: 1; height: 1px; background: var(--bdr); }
+
+/* ABOUT GRID */
+.about-grid { display: grid; grid-template-columns: 1fr 260px; gap: 3rem; align-items: start; }
+.about-text p + p { margin-top: 1rem; }
+.about-text p { font-size: 14.5px; color: var(--tx); }
+.stats-box { border: 1px solid var(--bdr); border-radius: 8px; overflow: hidden; }
+.stat-row { display: flex; justify-content: space-between; align-items: center; padding: .75rem 1rem; border-bottom: 1px solid var(--bdr); font-family: var(--mono); font-size: 12px; background: var(--bg2); }
+.stat-row:last-child { border-bottom: none; }
+.stat-k { color: var(--muted); }
+.stat-v { color: var(--blue); font-weight: 500; }
+
+/* EXP */
+.exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
+.exp-card { background: var(--bg2); border: 1px solid var(--bdr); border-radius: 8px; overflow: hidden; }
+.exp-card-top { display: flex; align-items: center; border-bottom: 1px solid var(--bdr); font-family: var(--mono); font-size: 12px; padding: .6rem 1rem; background: var(--bg3); gap: 1rem; }
+.exp-yr { color: var(--blue); }
+.exp-pill { margin-left: auto; padding: .15rem .65rem; border-radius: 20px; font-size: 10px; font-weight: 600; }
+.pill-g { background: rgba(63,185,80,.12); color: var(--green); border: 1px solid rgba(63,185,80,.25); }
+.pill-b { background: rgba(88,166,255,.12); color: var(--blue); border: 1px solid rgba(88,166,255,.25); }
+.exp-body { padding: 1.5rem; }
+.exp-t { font-family: var(--mono); font-size: 1rem; font-weight: 600; color: var(--tx); margin-bottom: .25rem; }
+.exp-org { font-family: var(--mono); font-size: 12px; color: var(--amber); margin-bottom: 1rem; }
+.exp-p { font-size: 14px; color: var(--muted); margin-bottom: .8rem; }
+.exp-ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
+.exp-ul li { font-size: 13.5px; color: var(--muted); display: flex; gap: .6rem; align-items: baseline; }
+.exp-ul li::before { content: '▸'; color: var(--green); flex-shrink: 0; font-size: 10px; }
+.exp-ul li b { color: var(--tx); font-weight: 500; }
+.exp-stack { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--bdr); display: flex; flex-wrap: wrap; gap: .4rem; }
+.stag { font-family: var(--mono); font-size: 11px; padding: .15rem .55rem; background: rgba(188,140,255,.08); border: 1px solid rgba(188,140,255,.2); border-radius: 3px; color: var(--purp); }
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--bdr); border: 1px solid var(--bdr); border-radius: 8px; overflow: hidden; }
+.sk-block { background: var(--bg2); padding: 1.5rem; }
+.sk-title { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 1.2rem; }
+.sk-bar-row { display: flex; align-items: center; gap: .8rem; margin-bottom: .65rem; }
+.sk-name { font-family: var(--mono); font-size: 12.5px; color: var(--tx); min-width: 90px; }
+.sk-bar { flex: 1; height: 3px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
+.sk-fill { height: 100%; background: linear-gradient(90deg, var(--green), #58d68d); border-radius: 2px; }
+.sk-note { font-size: 10.5px; color: var(--muted); white-space: nowrap; }
+.tag-cloud { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tag-b { font-family: var(--mono); font-size: 11px; padding: .2rem .6rem; background: rgba(88,166,255,.08); border: 1px solid rgba(88,166,255,.18); border-radius: 4px; color: var(--blue); }
+.tag-a { font-family: var(--mono); font-size: 11px; padding: .2rem .6rem; background: rgba(255,166,87,.08); border: 1px solid rgba(255,166,87,.18); border-radius: 4px; color: var(--amber); }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: center; }
+.contact-h { font-family: var(--mono); font-size: clamp(1.5rem,3vw,2rem); font-weight: 700; color: var(--tx); margin-bottom: 1rem; }
+.contact-h span { color: var(--green); }
+.contact-sub { color: var(--muted); font-size: 14px; }
+.terminal { background: var(--bg2); border: 1px solid var(--bdr); border-radius: 8px; overflow: hidden; }
+.term-chrome { background: var(--bg3); padding: .6rem 1rem; border-bottom: 1px solid var(--bdr); display: flex; align-items: center; gap: .5rem; }
+.t-dot { width: 11px; height: 11px; border-radius: 50%; }
+.term-body { padding: 1.4rem; font-family: var(--mono); font-size: 13px; }
+.t-line { margin-bottom: .45rem; }
+.t-cmd { color: var(--green); }
+.t-a { color: var(--blue); text-decoration: none; }
+.t-a:hover { text-decoration: underline; }
+.t-out { color: var(--muted); }
+
+/* FOOTER */
+footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px solid var(--bdr); font-family: var(--mono); font-size: 11px; color: var(--muted); display: flex; justify-content: space-between; }
+
+@media (max-width: 680px) {
+  .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .topbar-nav { display: none; }
+  .topbar-name { font-size: 11px; }
+  .sec, .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <span class="topbar-name"><span>~/</span>raphaelscapolan<span>.fr</span></span>
+  <div class="topbar-nav">
+    <a href="#about">profil</a>
+    <a href="#experience">parcours</a>
+    <a href="#skills">stack</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-prompt"><span class="p-sym">$</span> whoami</p>
+    <h1 class="hero-name">
+      <span class="n-blue">Raphaël</span>&nbsp;<span class="n-green">Scapolan</span><span class="cursor"></span>
+    </h1>
+    <p class="hero-role">// Développeur Senior .NET · Architecture · PhD · IA</p>
+    <p class="hero-desc">
+      10 ans sur un ERP à 400 000+ utilisateurs. Migration legacy, architecture Azure, intégration IA. La rigueur d'un chercheur, le calme d'un artisan.
+    </p>
+    <div class="hero-meta">
+      <div class="meta-pair"><span class="meta-k">location</span><span class="meta-v">Rouen, Normandie</span></div>
+      <div class="meta-pair"><span class="meta-k">status</span><span class="meta-v">en poste · ouvert aux échanges</span></div>
+      <div class="meta-pair"><span class="meta-k">exp</span><span class="meta-v">10+ ans</span></div>
+      <div class="meta-pair"><span class="meta-k">degree</span><span class="meta-v">PhD — Modélisation numérique</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-t btn-primary">▸ voir le parcours</a>
+      <a href="#contact" class="btn-t btn-sec">→ prendre contact</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <p class="sec-head">profil</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Développeur Senior .NET/WPF et Architecte logiciel, je travaille depuis 2015 sur un ERP propriétaire utilisé par 80 filiales dans le monde. Issu de la recherche — doctorat en modélisation électromagnétique (Grenoble, 2014) — je combine rigueur analytique et pragmatisme d'ingénieur.</p>
+      <p>J'ai piloté une migration majeure sur 5 ans (Access/VBA → C#/WPF) et j'intègre aujourd'hui l'IA générative dans les processus métier : automatisation des traitements d'achat et de facturation, extraction intelligente, matching et indexation de codebase via MCPs.</p>
+    </div>
+    <div class="stats-box">
+      <div class="stat-row"><span class="stat-k">expérience</span><span class="stat-v">10+ ans</span></div>
+      <div class="stat-row"><span class="stat-k">utilisateurs</span><span class="stat-v">400 000+</span></div>
+      <div class="stat-row"><span class="stat-k">filiales</span><span class="stat-v">80</span></div>
+      <div class="stat-row"><span class="stat-k">diplôme</span><span class="stat-v">PhD</span></div>
+      <div class="stat-row"><span class="stat-k">publications</span><span class="stat-v">2 (IEEE + conf.)</span></div>
+      <div class="stat-row"><span class="stat-k">localisation</span><span class="stat-v">Rouen · hybride</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="experience">
+  <p class="sec-head">parcours</p>
+  <div class="exp-list">
+
+    <div class="exp-card">
+      <div class="exp-card-top">
+        <span class="exp-yr">2015 — présent</span>
+        <span class="exp-pill pill-g">● En poste</span>
+      </div>
+      <div class="exp-body">
+        <p class="exp-t">Développeur Senior .NET / WPF — Architecture &amp; IA</p>
+        <p class="exp-org">CCB · Édition multimédia internationale · Rouen</p>
+        <p class="exp-p">ERP propriétaire · 80 filiales · 400 000+ utilisateurs · Agile @ scale · équipe de 10</p>
+        <ul class="exp-ul">
+          <li><b>Migration majeure (5 ans)</b> — Refonte ERP historique Access/VBA vers C# / WPF</li>
+          <li><b>Core ERP &amp; E-Commerce</b> — Module achats intégré, interconnexion e-commerce (flux cXML)</li>
+          <li><b>Architecture</b> — Client lourd + serveur Azure Service Bus, CI/CD GitLab</li>
+          <li><b>Qualité</b> — Tests automatisés BDD (Specflow/Reqnroll), revue de code systématique</li>
+          <li><b>Intégration IA</b> — Automatisation achats/factures, extraction, matching, indexation codebase</li>
+          <li><b>R&amp;D</b> — Écosystème MCPs, connexion GitLab/Redmine, jeu vidéo collaboratif (Godot)</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stag">C#</span><span class="stag">WPF</span><span class="stag">.NET</span>
+          <span class="stag">Azure Service Bus</span><span class="stag">SQL</span>
+          <span class="stag">Specflow</span><span class="stag">GitLab CI/CD</span>
+          <span class="stag">PowerShell</span><span class="stag">Claude</span><span class="stag">Copilot</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-top">
+        <span class="exp-yr">2014 — 2015</span>
+      </div>
+      <div class="exp-body">
+        <p class="exp-t">Ingénieur Calcul</p>
+        <p class="exp-org">Akka Technologies (mission Schneider Electric) · Grenoble</p>
+        <p class="exp-p">Modélisation électromagnétique de contacteurs, études de tolérancement, automatisation des calculs via Python.</p>
+        <div class="exp-stack">
+          <span class="stag">Python</span><span class="stag">Flux</span><span class="stag">Électromagnétisme</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-top">
+        <span class="exp-yr">2010 — 2014</span>
+        <span class="exp-pill pill-b">Doctorat</span>
+      </div>
+      <div class="exp-body">
+        <p class="exp-t">Docteur — Modélisation numérique &amp; HPC</p>
+        <p class="exp-org">SIMAP, Laboratoire de Recherche sur les Matériaux · Grenoble</p>
+        <p class="exp-p">Modélisation électromagnétique 3D d'inducteurs multibrins. Conception et implémentation d'un solveur HPC parallèle (méthode intégrale). Publications IEEE et conférences internationales.</p>
+        <div class="exp-stack">
+          <span class="stag">C++</span><span class="stag">MPI</span><span class="stag">Python</span>
+          <span class="stag">MATLAB</span><span class="stag">HPC</span><span class="stag">FEA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-card-top">
+        <span class="exp-yr">2009 — 2010</span>
+      </div>
+      <div class="exp-body">
+        <p class="exp-t">Stages de Recherche</p>
+        <p class="exp-org">CEA-Leti · LAPTH · Grenoble / Annecy</p>
+        <p class="exp-p">CEA-Leti : modélisation d'électrodes de stimulation rétinienne (COMSOL &amp; MATLAB). LAPTH : calcul de probabilité de désintégration du boson de Higgs (C++).</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec" id="skills">
+  <p class="sec-head">stack technique</p>
+  <div class="skills-grid">
+    <div class="sk-block">
+      <p class="sk-title">langages · niveau</p>
+      <div class="sk-bar-row"><span class="sk-name">C# / .NET</span><div class="sk-bar"><div class="sk-fill" style="width:95%"></div></div><span class="sk-note">Expert · 10 ans</span></div>
+      <div class="sk-bar-row"><span class="sk-name">C / C++</span><div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div><span class="sk-note">Avancé · HPC</span></div>
+      <div class="sk-bar-row"><span class="sk-name">Python</span><div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div><span class="sk-note">Avancé</span></div>
+      <div class="sk-bar-row"><span class="sk-name">SQL</span><div class="sk-bar"><div class="sk-fill" style="width:65%"></div></div><span class="sk-note">Confirmé</span></div>
+      <div class="sk-bar-row"><span class="sk-name">PowerShell</span><div class="sk-bar"><div class="sk-fill" style="width:60%"></div></div><span class="sk-note">Confirmé</span></div>
+    </div>
+    <div class="sk-block">
+      <p class="sk-title">frameworks &amp; outils</p>
+      <div class="tag-cloud">
+        <span class="tag-b">WPF</span><span class="tag-b">.NET</span>
+        <span class="tag-b">Azure Service Bus</span><span class="tag-b">Specflow</span>
+        <span class="tag-b">Reqnroll</span><span class="tag-b">GitLab CI/CD</span>
+        <span class="tag-b">MPI</span><span class="tag-b">MATLAB</span><span class="tag-b">Flux3D</span>
+      </div>
+    </div>
+    <div class="sk-block">
+      <p class="sk-title">IA &amp; recherche</p>
+      <div class="tag-cloud">
+        <span class="tag-a">GitHub Copilot</span><span class="tag-a">Claude</span>
+        <span class="tag-a">GPT</span><span class="tag-a">MCP</span>
+        <span class="tag-a">HPC</span><span class="tag-a">FEA</span>
+        <span class="tag-a">Méthodes intégrales</span>
+      </div>
+    </div>
+    <div class="sk-block">
+      <p class="sk-title">méthodes</p>
+      <div class="tag-cloud">
+        <span class="tag-b">Architecture logicielle</span>
+        <span class="tag-b">Agile à l'échelle</span>
+        <span class="tag-b">BDD / TDD</span>
+        <span class="tag-b">Migration legacy</span>
+        <span class="tag-b">Leadership technique</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <p class="sec-head">contact</p>
+  <div class="contact-grid">
+    <div>
+      <h2 class="contact-h">Discutons<br><span>ensemble.</span></h2>
+      <p class="contact-sub">Question, projet, opportunité — la première étape est toujours une conversation. Je réponds sous 48 h.</p>
+    </div>
+    <div class="terminal">
+      <div class="term-chrome">
+        <div class="t-dot" style="background:#ff5f56"></div>
+        <div class="t-dot" style="background:#ffbd2e"></div>
+        <div class="t-dot" style="background:#27c93f"></div>
+      </div>
+      <div class="term-body">
+        <p class="t-line"><span class="t-cmd">$ </span><span class="t-out">cat contacts.md</span></p>
+        <p class="t-line" style="margin-top:.8rem"><span class="t-cmd">email    </span><a href="mailto:contact@raphaelscapolan.fr" class="t-a">contact@raphaelscapolan.fr</a></p>
+        <p class="t-line"><span class="t-cmd">github   </span><a href="https://github.com/scapolanraphael-dev" class="t-a" target="_blank" rel="noopener">scapolanraphael-dev</a></p>
+        <p class="t-line"><span class="t-cmd">linkedin </span><a href="https://www.linkedin.com/in/raphaël-scapolan-87812799/" class="t-a" target="_blank" rel="noopener">raphaël-scapolan</a></p>
+        <p class="t-line" style="margin-top:.8rem"><span style="color:var(--green)">●</span><span class="t-out"> disponible pour échanger</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Raphaël Scapolan</span>
+  <span>conçu avec soin · Rouen</span>
+</footer>
+
+</body>
+</html>
