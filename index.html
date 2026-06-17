@@ -59,6 +59,8 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
   font-size: 12px; text-transform: uppercase; letter-spacing: .06em;
   transition: color .2s, background .2s; border-left: 1px solid var(--bdr);
 }
+.topbar-nav a::before { content: '{'; color: var(--green); margin-right: .4rem; font-weight: 300; transition: color .2s; }
+.topbar-nav a::after { content: '}'; color: var(--green); margin-left: .4rem; font-weight: 300; transition: color .2s; }
 .topbar-nav a:hover { color: var(--green); background: var(--bg3); }
 .theme-toggle {
   font-family: var(--mono); font-size: 20px; background: none; border: 1px solid var(--bdr);
