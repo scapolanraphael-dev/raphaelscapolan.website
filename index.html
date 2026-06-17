@@ -188,11 +188,24 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
     border-left: none; border-top: 1px solid var(--bdr);
     height: 44px; padding: 0 1.5rem;
   }
+  .topbar { padding: 0 1rem; }
   .topbar-name { font-size: 11px; }
-  .sec, .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .sec { padding-top: 3rem; padding-bottom: 3rem; padding-left: 1.25rem; padding-right: 1.25rem; }
+  .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+  .hero-meta { gap: 1rem; }
+  .exp-logo-body { width: 36px; height: 36px; }
+  .term-body { font-size: 12px; overflow-wrap: break-word; word-break: break-all; }
+  footer { flex-direction: column; gap: .4rem; text-align: center; padding: 1.2rem 1.25rem; }
   .hamburger { display: flex; }
   .stats-grid { flex-wrap: wrap; background: var(--bdr); gap: 1px; }
   .stat-fig { flex: 1 1 calc(33% - 1px); border-right: none; }
+}
+@media (max-width: 420px) {
+  .btn-t { width: 100%; text-align: center; justify-content: center; }
+  .hero-cta { flex-direction: column; }
+  .exp-card-top { font-size: 12px; }
+  .hero-name { font-size: 2rem; }
+  .sec-head { font-size: 14px; letter-spacing: .08em; }
 }
 </style>
 </head>
