@@ -38,6 +38,9 @@
   --bg-glass: rgba(221,225,231,.97);
 }
 html { scroll-behavior: smooth; }
+html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after {
+  transition: background-color .5s ease, color .45s ease, border-color .5s ease, box-shadow .5s ease !important;
+}
 body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-size: 16px; line-height: 1.75; }
 
 /* TOPBAR */
@@ -444,9 +447,12 @@ toggle.textContent = saved === 'dark' ? '☀' : '☾';
 
 toggle.addEventListener('click', () => {
   const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', next);
+  const html = document.documentElement;
+  html.classList.add('theme-fade');
+  html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
   toggle.textContent = next === 'dark' ? '☀' : '☾';
+  setTimeout(() => html.classList.remove('theme-fade'), 600);
 });
 </script>
 </body>
