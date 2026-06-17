@@ -23,7 +23,7 @@
   --sans:  'Inter', system-ui, sans-serif;
 }
 html { scroll-behavior: smooth; }
-body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-size: 15px; line-height: 1.7; }
+body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-size: 16px; line-height: 1.75; }
 
 /* TOPBAR */
 .topbar {
@@ -32,7 +32,7 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
   display: flex; align-items: center; padding: 0 2rem; height: 48px;
   backdrop-filter: blur(8px); font-family: var(--mono); font-size: 12px;
 }
-.topbar-name { color: var(--green); margin-right: auto; }
+.topbar-name { color: var(--green); margin-right: auto; font-size: 15px; font-weight: 600; }
 .topbar-name span { color: var(--muted); }
 .topbar-nav { display: flex; }
 .topbar-nav a {
@@ -53,10 +53,10 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
 .hero-name .n-green { color: var(--green); }
 .hero-role { font-family: var(--mono); font-size: clamp(.9rem,2vw,1.25rem); color: var(--amber); margin-top: .5rem; font-weight: 400; }
 .hero-desc { max-width: 560px; color: var(--muted); margin-top: 1.5rem; font-size: 14.5px; border-left: 2px solid var(--bdr); padding-left: 1.2rem; }
-.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; font-family: var(--mono); font-size: 12px; }
-.meta-pair { display: flex; flex-direction: column; gap: .15rem; }
+.hero-meta { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem; font-family: var(--mono); font-size: 14px; }
+.meta-pair { display: flex; flex-direction: column; gap: .2rem; }
 .meta-k { color: var(--muted); }
-.meta-v { color: var(--green); }
+.meta-v { color: var(--green); font-size: 15px; font-weight: 500; }
 .hero-cta { display: flex; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
 .btn-t { font-family: var(--mono); font-size: 13px; padding: .6rem 1.4rem; border-radius: 4px; text-decoration: none; border: 1px solid; transition: all .2s; }
 .btn-primary { border-color: var(--green); color: var(--green); }
