@@ -71,14 +71,14 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
 .sec-head::after { content: ''; flex: 1; height: 1px; background: var(--bdr); }
 
 /* ABOUT GRID */
-.about-grid { display: grid; grid-template-columns: 1fr 260px; gap: 3rem; align-items: start; }
+.about-grid { display: flex; flex-direction: column; gap: 2rem; }
 .about-text p + p { margin-top: 1rem; }
 .about-text p { font-size: 14.5px; color: var(--tx); }
-.stats-box { border: 1px solid var(--bdr); border-radius: 8px; overflow: hidden; }
-.stat-row { display: flex; justify-content: space-between; align-items: center; padding: .75rem 1rem; border-bottom: 1px solid var(--bdr); font-family: var(--mono); font-size: 12px; background: var(--bg2); }
-.stat-row:last-child { border-bottom: none; }
-.stat-k { color: var(--muted); }
-.stat-v { color: var(--blue); font-weight: 500; }
+.stats-grid { display: flex; border: 1px solid var(--bdr); border-radius: 8px; overflow: hidden; }
+.stat-fig { flex: 1; padding: 1.2rem 1rem; background: var(--bg2); border-right: 1px solid var(--bdr); }
+.stat-fig:last-child { border-right: none; }
+.stat-fig-n { font-family: var(--mono); font-size: 1.6rem; font-weight: 700; color: var(--blue); line-height: 1; display: block; }
+.stat-fig-l { font-family: var(--mono); font-size: 9px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); display: block; margin-top: .5rem; line-height: 1.5; }
 
 /* EXP */
 .exp-list { display: flex; flex-direction: column; gap: 1.5rem; }
@@ -183,12 +183,12 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
       <p>Développeur Senior .NET/WPF et Architecte logiciel, je travaille depuis 2015 sur un ERP propriétaire utilisé par 80 filiales dans le monde. Issu de la recherche — doctorat en modélisation électromagnétique (Grenoble, 2014) — je combine rigueur analytique et pragmatisme d'ingénieur.</p>
       <p>J'ai contribué à une migration majeure sur 5 ans (Access/VBA → C#/WPF) et j'intègre aujourd'hui l'IA générative dans les processus métier : automatisation des traitements d'achat et de facturation, extraction intelligente, matching et indexation de codebase via MCPs.</p>
     </div>
-    <div class="stats-box">
-      <div class="stat-row"><span class="stat-k">expérience</span><span class="stat-v">10+ ans</span></div>
-      <div class="stat-row"><span class="stat-k">utilisateurs</span><span class="stat-v">400 000+</span></div>
-      <div class="stat-row"><span class="stat-k">filiales</span><span class="stat-v">80</span></div>
-      <div class="stat-row"><span class="stat-k">diplôme</span><span class="stat-v">PhD</span></div>
-      <div class="stat-row"><span class="stat-k">publications</span><span class="stat-v">2 (IEEE + conf.)</span></div>
+    <div class="stats-grid">
+      <div class="stat-fig"><span class="stat-fig-n">10<sup style="font-size:.6em">+</sup></span><span class="stat-fig-l">années<br>d'expérience</span></div>
+      <div class="stat-fig"><span class="stat-fig-n">400k</span><span class="stat-fig-l">utilisateurs<br>ERP</span></div>
+      <div class="stat-fig"><span class="stat-fig-n">80</span><span class="stat-fig-l">filiales<br>internationales</span></div>
+      <div class="stat-fig"><span class="stat-fig-n">PhD</span><span class="stat-fig-l">modélisation<br>numérique</span></div>
+      <div class="stat-fig"><span class="stat-fig-n">2</span><span class="stat-fig-l">publications<br>IEEE + conf.</span></div>
     </div>
   </div>
 </section>
