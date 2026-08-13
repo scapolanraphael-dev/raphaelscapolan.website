@@ -264,8 +264,8 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
     <a href="#contact" data-i18n="nav.contact">contact</a>
   </div>
   <div style="display: flex; gap: 0.5rem;">
-    <button class="lang-toggle" id="langToggle" title="Change language">FR</button>
-    <button class="theme-toggle" id="themeToggle" title="Changer de thème">☀</button>
+    <button class="lang-toggle" id="langToggle" title="Switch to English">FR</button>
+    <button class="theme-toggle" id="themeToggle" title="Passer en thème clair">☀</button>
   </div>
 </nav>
 
@@ -604,7 +604,11 @@ const translations = {
     'contact.sub': 'Question, projet, opportunité : la première étape est toujours une conversation. Je réponds sous 48 h.',
     'contact.available': 'Disponible pour échanger',
     'footer.copyright': '© 2026 Raphaël Scapolan',
-    'footer.made': 'Généré avec'
+    'footer.made': 'Généré avec',
+    'ui.menu': 'Menu',
+    'ui.lang': 'Switch to English',
+    'ui.theme.toLight': 'Passer en thème clair',
+    'ui.theme.toDark': 'Passer en thème sombre'
   },
   en: {
     'nav.profile': 'profile',
@@ -691,7 +695,11 @@ const translations = {
     'contact.sub': 'Question, project, opportunity: the first step is always a conversation. I reply within 48 hours.',
     'contact.available': 'Available to discuss',
     'footer.copyright': '© 2026 Raphaël Scapolan',
-    'footer.made': 'Generated with'
+    'footer.made': 'Generated with',
+    'ui.menu': 'Menu',
+    'ui.lang': 'Passer en français',
+    'ui.theme.toLight': 'Switch to light theme',
+    'ui.theme.toDark': 'Switch to dark theme'
   }
 };
 
@@ -725,6 +733,25 @@ function setLanguage(lang) {
     } else {
       btn.textContent = showMoreText;
     }
+  });
+
+  updateControlLabels();
+}
+
+// Libellés des contrôles de la topbar. Ils décrivent l'action à venir, pas
+// l'état courant : ils dépendent donc de la langue ET du thème actif.
+function updateControlLabels() {
+  const t = translations[currentLang];
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  const labels = [
+    ['hamburger',   t['ui.menu']],
+    ['langToggle',  t['ui.lang']],
+    ['themeToggle', isDark ? t['ui.theme.toLight'] : t['ui.theme.toDark']]
+  ];
+  labels.forEach(([id, label]) => {
+    const el = document.getElementById(id);
+    el.title = label;
+    el.setAttribute('aria-label', label);
   });
 }
 
@@ -769,6 +796,7 @@ toggle.addEventListener('click', () => {
   html.setAttribute('data-theme', next);
   localStorage.setItem('theme', next);
   toggle.textContent = next === 'dark' ? '☀' : '☾';
+  updateControlLabels();
   setTimeout(() => html.classList.remove('theme-fade'), 1800);
 });
 
