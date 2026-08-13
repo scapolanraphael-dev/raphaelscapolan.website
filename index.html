@@ -184,11 +184,11 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
 .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--bdr); border: 1px solid var(--bdr); border-radius: 8px; overflow: hidden; }
 .sk-block { background: var(--bg2); padding: 1.5rem; }
 .sk-title { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; color: var(--tx); font-weight: 600; margin-bottom: 1.2rem; border-bottom: 1px solid var(--bdr); padding-bottom: .6rem; }
-.sk-bar-row { display: flex; align-items: center; gap: .8rem; margin-bottom: .65rem; }
-.sk-name { font-family: var(--mono); font-size: 12.5px; color: var(--tx); min-width: 90px; }
-.sk-bar { flex: 1; height: 3px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
-.sk-fill { height: 100%; background: linear-gradient(90deg, var(--green), #58d68d); border-radius: 2px; }
-.sk-note { font-size: 10.5px; color: var(--muted); white-space: nowrap; }
+.sk-row { display: flex; align-items: baseline; gap: .9rem; margin-bottom: .7rem; }
+.sk-row:last-child { margin-bottom: 0; }
+.sk-name { font-family: var(--mono); font-size: 12.5px; color: var(--tx); min-width: 96px; flex-shrink: 0; }
+.sk-note { font-family: var(--mono); font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+.sk-note b { color: var(--green); font-weight: 500; }
 .tag-cloud { display: flex; flex-wrap: wrap; gap: .4rem; }
 .tag-b { font-family: var(--mono); font-size: 11px; padding: .2rem .6rem; background: rgba(88,166,255,.08); border: 1px solid rgba(88,166,255,.18); border-radius: 4px; color: var(--blue); }
 .tag-a { font-family: var(--mono); font-size: 11px; padding: .2rem .6rem; background: rgba(255,166,87,.08); border: 1px solid rgba(255,166,87,.18); border-radius: 4px; color: var(--amber); }
@@ -247,6 +247,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
   .btn-t { width: 100%; text-align: center; justify-content: center; }
   .hero-cta { flex-direction: column; }
   .exp-card-top { font-size: 12px; }
+  .sk-row { flex-direction: column; gap: .1rem; margin-bottom: .9rem; }
   .hero-name { font-size: 2rem; }
   .sec-head { font-size: 14px; letter-spacing: .08em; }
 }
@@ -342,7 +343,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
             </div>
           </div>
         </div>
-        <button class="exp-toggle" data-i18n="exp.1.toggle">▸ Voir plus</button>
+        <button class="exp-toggle">▸ Voir plus</button>
       </div>
     </div>
 
@@ -364,7 +365,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
             </div>
           </div>
         </div>
-        <button class="exp-toggle" data-i18n="exp.2.toggle">▸ Voir plus</button>
+        <button class="exp-toggle">▸ Voir plus</button>
       </div>
     </div>
 
@@ -393,7 +394,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
             </div>
           </div>
         </div>
-        <button class="exp-toggle" data-i18n="exp.3.toggle">▸ Voir plus</button>
+        <button class="exp-toggle">▸ Voir plus</button>
       </div>
     </div>
 
@@ -420,7 +421,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
             </div>
           </div>
         </div>
-        <button class="exp-toggle" data-i18n="exp.4.toggle">▸ Voir plus</button>
+        <button class="exp-toggle">▸ Voir plus</button>
       </div>
     </div>
 
@@ -446,7 +447,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
             </div>
           </div>
         </div>
-        <button class="exp-toggle" data-i18n="exp.5.toggle">▸ Voir plus</button>
+        <button class="exp-toggle">▸ Voir plus</button>
       </div>
     </div>
 
@@ -458,11 +459,11 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
   <div class="skills-grid">
     <div class="sk-block">
       <p class="sk-title" data-i18n="skills.languages">langages · niveau</p>
-      <div class="sk-bar-row"><span class="sk-name">C# / .NET</span><div class="sk-bar"><div class="sk-fill" style="width:95%"></div></div><span class="sk-note" data-i18n="skills.level.csharp">Expert · 10 ans</span></div>
-      <div class="sk-bar-row"><span class="sk-name">C / C++</span><div class="sk-bar"><div class="sk-fill" style="width:80%"></div></div><span class="sk-note" data-i18n="skills.level.cpp">Avancé · HPC</span></div>
-      <div class="sk-bar-row"><span class="sk-name">Python</span><div class="sk-bar"><div class="sk-fill" style="width:75%"></div></div><span class="sk-note" data-i18n="skills.level.python">Avancé</span></div>
-      <div class="sk-bar-row"><span class="sk-name">SQL</span><div class="sk-bar"><div class="sk-fill" style="width:65%"></div></div><span class="sk-note" data-i18n="skills.level.sql">Confirmé</span></div>
-      <div class="sk-bar-row"><span class="sk-name">PowerShell</span><div class="sk-bar"><div class="sk-fill" style="width:60%"></div></div><span class="sk-note" data-i18n="skills.level.ps">Confirmé</span></div>
+      <div class="sk-row"><span class="sk-name">C# / .NET</span><span class="sk-note" data-i18n="skills.level.csharp"><b>Expert</b> · 10 ans · ERP 400k utilisateurs</span></div>
+      <div class="sk-row"><span class="sk-name">C / C++</span><span class="sk-note" data-i18n="skills.level.cpp"><b>Avancé</b> · solveur HPC parallélisé, MPI</span></div>
+      <div class="sk-row"><span class="sk-name">Python</span><span class="sk-note" data-i18n="skills.level.python"><b>Avancé</b> · automatisation de calculs, outillage</span></div>
+      <div class="sk-row"><span class="sk-name">SQL</span><span class="sk-note" data-i18n="skills.level.sql"><b>Confirmé</b> · modèle de données ERP</span></div>
+      <div class="sk-row"><span class="sk-name">PowerShell</span><span class="sk-note" data-i18n="skills.level.ps"><b>Confirmé</b> · CI/CD, scripts de déploiement</span></div>
     </div>
     <div class="sk-block">
       <p class="sk-title" data-i18n="skills.frameworks">frameworks & outils</p>
@@ -518,221 +519,139 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
 </footer>
 
 <script>
-const translations = {
+// Libellés sans équivalent dans le DOM : noms accessibles des boutons-icônes
+// et textes engendrés par le script. Ce sont les seules chaînes qui doivent
+// exister en double, faute d'un élément de page où les héberger.
+const uiStrings = {
   fr: {
-    'nav.profile': 'profil',
-    'nav.experience': 'parcours',
-    'nav.skills': 'stack',
-    'nav.contact': 'contact',
-    'hero.role': 'Développeur Senior · Architecture · IA · PhD',
-    'hero.desc': '10 ans sur un ERP 3-tier à 400 000+ utilisateurs.<br>Migration legacy, architecture Azure, intégration IA.',
-    'hero.status': 'En poste · ouvert aux échanges',
-    'hero.experience': '10+ ans',
-    'hero.degree': 'PhD (Modélisation numérique)',
-    'hero.cta1': '▸ Voir le parcours',
-    'hero.cta2': '→ Prendre contact',
-    'about.title': 'profil',
-    'about.p1': 'Développeur Senior .NET/WPF et Architecte logiciel, je travaille depuis 2015 sur un ERP propriétaire utilisé par 80 filiales dans le monde. Issu de la recherche — doctorat en modélisation électromagnétique (Grenoble, 2014) — je combine rigueur analytique et pragmatisme d\'ingénieur.',
-    'about.p2': 'J\'ai contribué à la migration et à la modernisation majeures de cet ERP (Access/VBA → C#/WPF, projet sur 5 ans, 500+ collaborateurs à l\'international), puis à l\'intégration de l\'IA générative dans les processus métier : automatisation des traitements d\'achat et de facturation, extraction intelligente, matching...',
-    'about.stat1': 'années<br>d\'expérience',
-    'about.stat2': 'utilisateurs<br>ERP',
-    'about.stat3': 'filiales<br>internationales',
-    'about.stat4': 'modélisation<br>numérique',
-    'about.stat5': 'publications<br>IEEE + conf.',
-    'exp.title': 'parcours',
-    'exp.1.year': '2015 — aujourd\'hui',
-    'exp.1.status': '● En poste',
-    'exp.1.title': 'Développeur Senior .NET / WPF — Architecture & IA',
-    'exp.1.org': 'CCB · Édition multimédia internationale',
-    'exp.1.desc': 'ERP propriétaire · 80 filiales · 400 000+ utilisateurs · Agile @ scale · équipe de 10',
-    'exp.1.li1': '<b>Migration majeure (5 ans)</b> — Refonte ERP historique Access/VBA vers C# / WPF',
-    'exp.1.li2': '<b>Core ERP & E-Commerce</b> — Module achats intégré, interconnexion e-commerce (flux cXML)',
-    'exp.1.li3': '<b>Architecture</b> — Client lourd + serveur Azure Service Bus, CI/CD GitLab',
-    'exp.1.li4': '<b>Qualité</b> — Tests automatisés BDD (Specflow/Reqnroll), revue de code systématique',
-    'exp.1.li5': '<b>IA métier</b> — Automatisation achats/factures, extraction intelligente, matching',
-    'exp.1.li6': '<b>IA technique</b> — Développement assisté par IA, revue de code augmentée',
-    'exp.1.li7': '<b>R&D</b> — MCPs (indexation codebase, GitLab/Redmine), AI Buildathons',
-    'exp.1.li8': '<b>Événementiel & Création</b> — Conception et développement d\'un jeu vidéo collaboratif (moteur Godot)',
-    'exp.1.toggle': '▸ Voir plus',
-    'exp.2.year': '2014 — 2015',
-    'exp.2.title': 'Ingénieur Calcul',
-    'exp.2.org': 'Akkodis (ex-Akka Technologies) · mission Schneider Electric · Grenoble',
-    'exp.2.desc': 'Modélisation électromagnétique de contacteurs, études de tolérancement, automatisation des calculs via Python.',
-    'exp.2.toggle': '▸ Voir plus',
-    'exp.3.year': '2010 — 2014',
-    'exp.3.pill': 'Doctorat',
-    'exp.3.title': 'Docteur — Modélisation numérique & HPC',
-    'exp.3.org': 'SIMAP, Laboratoire de Recherche sur les Matériaux · Grenoble',
-    'exp.3.desc': 'Modélisation électromagnétique 3D d\'inducteurs multibrins. Conception et implémentation d\'un solveur HPC parallèle (méthode intégrale). Publications IEEE et conférences internationales.',
-    'exp.3.li1': '<b>Thèse</b> — Modélisation électromagnétique 3D d\'inducteurs multibrins — développement d\'une méthode intégrale parallélisée',
-    'exp.3.li2': '<b>HPC</b> — Conception architecturale d\'un solveur parallèle, optimisation MPI sur cluster Ada (IDRIS)',
-    'exp.3.li3': '<b>Publications</b> — IEEE Transactions on Magnetics (fév. 2014) · Colloque international MEP (sept. 2014)',
-    'exp.3.toggle': '▸ Voir plus',
-    'exp.4.year': 'mars 2010 — août 2010',
-    'exp.4.title': 'Research Internship',
-    'exp.4.org': 'CEA, Leti · Grenoble',
-    'exp.4.desc': 'Modélisation d\'électrodes de stimulation rétinienne avec COMSOL.',
-    'exp.4.li1': 'Modélisation d\'électrodes de stimulation rétinienne (COMSOL)',
-    'exp.4.li2': 'Pilotage et automatisation des calculs COMSOL via MATLAB',
-    'exp.4.li3': 'Mesures d\'impédance des électrodes et aide à la caractérisation',
-    'exp.4.toggle': '▸ Voir plus',
-    'exp.5.year': 'mai 2009 — juin 2009',
-    'exp.5.title': 'Research Internship',
-    'exp.5.org': 'Laboratoire d\'Annecy-le-Vieux de Physique Théorique (LAPTH) · Annecy',
-    'exp.5.desc': 'Calcul de la probabilité de désintégration du boson de Higgs.',
-    'exp.5.li1': 'Calcul de la probabilité de désintégration du boson de Higgs',
-    'exp.5.li2': 'Développement en C++',
-    'exp.5.toggle': '▸ Voir plus',
-    'skills.title': 'stack technique',
-    'skills.languages': 'langages · niveau',
-    'skills.frameworks': 'frameworks & outils',
-    'skills.ai': 'IA & recherche',
-    'skills.methods': 'méthodes',
-    'skills.level.csharp': 'Expert · 10 ans',
-    'skills.level.cpp': 'Avancé · HPC',
-    'skills.level.python': 'Avancé',
-    'skills.level.sql': 'Confirmé',
-    'skills.level.ps': 'Confirmé',
-    'skills.method1': 'Architecture logicielle',
-    'skills.method2': 'Agile à l\'échelle',
-    'skills.method3': 'BDD / TDD',
-    'skills.method4': 'Migration legacy',
-    'skills.method5': 'Leadership technique',
-    'skills.tag.integral': 'Méthodes intégrales',
-    'contact.title': 'contact',
-    'contact.heading': 'Discutons <span>ensemble.</span>',
-    'contact.sub': 'Question, projet, opportunité : la première étape est toujours une conversation. Je réponds sous 48 h.',
-    'contact.available': 'Disponible pour échanger',
-    'footer.copyright': '© 2026 Raphaël Scapolan',
-    'footer.made': 'Généré avec',
-    'ui.menu': 'Menu',
-    'ui.lang': 'Switch to English',
-    'ui.theme.toLight': 'Passer en thème clair',
-    'ui.theme.toDark': 'Passer en thème sombre'
+    menu:         'Menu',
+    lang:         'Switch to English',
+    themeToLight: 'Passer en thème clair',
+    themeToDark:  'Passer en thème sombre',
+    showMore:     '▸ Voir plus',
+    showLess:     '▾ Réduire'
   },
   en: {
-    'nav.profile': 'profile',
-    'nav.experience': 'experience',
-    'nav.skills': 'stack',
-    'nav.contact': 'contact',
-    'hero.role': 'Senior Developer · Architecture · AI · PhD',
-    'hero.desc': '10 years on a 3-tier ERP serving 400,000+ users.<br>Legacy migration, Azure architecture, AI integration.',
-    'hero.status': 'Currently employed · open to discussions',
-    'hero.experience': '10+ years',
-    'hero.degree': 'PhD (Numerical Modeling)',
-    'hero.cta1': '▸ View my experience',
-    'hero.cta2': '→ Get in touch',
-    'about.title': 'profile',
-    'about.p1': 'Senior .NET/WPF Developer and Software Architect, I\'ve been working since 2015 on a proprietary ERP used by 80 subsidiaries worldwide. With a background in research — PhD in electromagnetic modeling (Grenoble, 2014) — I combine analytical rigor with engineering pragmatism.',
-    'about.p2': 'I\'ve contributed to the major migration and modernization of this ERP (Access/VBA → C#/WPF, 5-year project with 500+ international collaborators), and then to the integration of generative AI in business processes: procurement and invoicing automation, intelligent extraction, matching...',
-    'about.stat1': 'years<br>experience',
-    'about.stat2': 'ERP<br>users',
-    'about.stat3': 'international<br>subsidiaries',
-    'about.stat4': 'numerical<br>modeling',
-    'about.stat5': 'IEEE publications<br>& conferences',
-    'exp.title': 'experience',
-    'exp.1.year': '2015 — today',
-    'exp.1.status': '● Currently employed',
-    'exp.1.title': 'Senior Developer .NET / WPF — Architecture & AI',
-    'exp.1.org': 'CCB · International Multimedia Publishing',
-    'exp.1.desc': 'Proprietary ERP · 80 subsidiaries · 400,000+ users · Agile @ scale · team of 10',
-    'exp.1.li1': '<b>Major Migration (5 years)</b> — Overhaul of legacy ERP from Access/VBA to C# / WPF',
-    'exp.1.li2': '<b>Core ERP & E-Commerce</b> — Integrated procurement module, e-commerce interconnection (cXML streams)',
-    'exp.1.li3': '<b>Architecture</b> — Rich client + Azure Service Bus server, GitLab CI/CD',
-    'exp.1.li4': '<b>Quality</b> — Automated BDD testing (Specflow/Reqnroll), systematic code review',
-    'exp.1.li5': '<b>Business AI</b> — Procurement/invoicing automation, intelligent extraction, matching',
-    'exp.1.li6': '<b>Technical AI</b> — AI-assisted development, augmented code review',
-    'exp.1.li7': '<b>R&D</b> — MCPs (codebase indexing, GitLab/Redmine), AI Buildathons',
-    'exp.1.li8': '<b>Events & Creation</b> — Design and development of a collaborative video game (Godot engine)',
-    'exp.1.toggle': '▸ Show more',
-    'exp.2.year': '2014 — 2015',
-    'exp.2.title': 'Computation Engineer',
-    'exp.2.org': 'Akkodis (ex-Akka Technologies) · Schneider Electric mission · Grenoble',
-    'exp.2.desc': 'Electromagnetic modeling of contactors, tolerance studies, automation of calculations via Python.',
-    'exp.2.toggle': '▸ Show more',
-    'exp.3.year': '2010 — 2014',
-    'exp.3.pill': 'PhD',
-    'exp.3.title': 'Doctor — Numerical Modeling & HPC',
-    'exp.3.org': 'SIMAP, Materials Research Laboratory · Grenoble',
-    'exp.3.desc': '3D electromagnetic modeling of multistrand inductors. Design and implementation of a parallel HPC solver (integral method). IEEE publications and international conferences.',
-    'exp.3.li1': '<b>Thesis</b> — 3D electromagnetic modeling of multistrand inductors — development of a parallelized integral method',
-    'exp.3.li2': '<b>HPC</b> — Architectural design of a parallel solver, MPI optimization on Ada cluster (IDRIS)',
-    'exp.3.li3': '<b>Publications</b> — IEEE Transactions on Magnetics (Feb. 2014) · MEP International Symposium (Sept. 2014)',
-    'exp.3.toggle': '▸ Show more',
-    'exp.4.year': 'March 2010 — August 2010',
-    'exp.4.title': 'Research Internship',
-    'exp.4.org': 'CEA, Leti · Grenoble',
-    'exp.4.desc': 'Modeling of retinal stimulation electrodes with COMSOL.',
-    'exp.4.li1': 'Modeling of retinal stimulation electrodes (COMSOL)',
-    'exp.4.li2': 'Driving and automating COMSOL calculations via MATLAB',
-    'exp.4.li3': 'Impedance measurements of electrodes and characterization support',
-    'exp.4.toggle': '▸ Show more',
-    'exp.5.year': 'May 2009 — June 2009',
-    'exp.5.title': 'Research Internship',
-    'exp.5.org': 'Annecy-le-Vieux Theoretical Physics Laboratory (LAPTH) · Annecy',
-    'exp.5.desc': 'Calculation of the Higgs boson decay probability.',
-    'exp.5.li1': 'Calculation of the Higgs boson decay probability',
-    'exp.5.li2': 'Development in C++',
-    'exp.5.toggle': '▸ Show more',
-    'skills.title': 'tech stack',
-    'skills.languages': 'languages · level',
-    'skills.frameworks': 'frameworks & tools',
-    'skills.ai': 'AI & research',
-    'skills.methods': 'methods',
-    'skills.level.csharp': 'Expert · 10 years',
-    'skills.level.cpp': 'Advanced · HPC',
-    'skills.level.python': 'Advanced',
-    'skills.level.sql': 'Proficient',
-    'skills.level.ps': 'Proficient',
-    'skills.method1': 'Software Architecture',
-    'skills.method2': 'Agile at Scale',
-    'skills.method3': 'BDD / TDD',
-    'skills.method4': 'Legacy Migration',
-    'skills.method5': 'Technical Leadership',
-    'skills.tag.integral': 'Integral Methods',
-    'contact.title': 'contact',
-    'contact.heading': 'Let\'s <span>talk.</span>',
-    'contact.sub': 'Question, project, opportunity: the first step is always a conversation. I reply within 48 hours.',
-    'contact.available': 'Available to discuss',
-    'footer.copyright': '© 2026 Raphaël Scapolan',
-    'footer.made': 'Generated with',
-    'ui.menu': 'Menu',
-    'ui.lang': 'Passer en français',
-    'ui.theme.toLight': 'Switch to light theme',
-    'ui.theme.toDark': 'Switch to dark theme'
+    menu:         'Menu',
+    lang:         'Passer en français',
+    themeToLight: 'Switch to light theme',
+    themeToDark:  'Switch to dark theme',
+    showMore:     '▸ Show more',
+    showLess:     '▾ Show less'
   }
 };
+
+// Le HTML porte les textes français : ils sont l'unique source de vérité et
+// sont relevés au chargement (frOriginals). Seul l'anglais est décrit ici.
+const enTranslations = {
+  'nav.profile': 'profile',
+  'nav.experience': 'experience',
+  'nav.skills': 'stack',
+  'nav.contact': 'contact',
+  'hero.role': 'Senior Developer · Architecture · AI · PhD',
+  'hero.desc': '10 years on a 3-tier ERP serving 400,000+ users.<br>Legacy migration, Azure architecture, AI integration.',
+  'hero.status': 'Currently employed · open to discussions',
+  'hero.experience': '10+ years',
+  'hero.degree': 'PhD (Numerical Modeling)',
+  'hero.cta1': '▸ View my experience',
+  'hero.cta2': '→ Get in touch',
+  'about.title': 'profile',
+  'about.p1': 'Senior .NET/WPF Developer and Software Architect, I\'ve been working since 2015 on a proprietary ERP used by 80 subsidiaries worldwide. With a background in research — PhD in electromagnetic modeling (Grenoble, 2014) — I combine analytical rigor with engineering pragmatism.',
+  'about.p2': 'I\'ve contributed to the major migration and modernization of this ERP (Access/VBA → C#/WPF, 5-year project with 500+ international collaborators), and then to the integration of generative AI in business processes: procurement and invoicing automation, intelligent extraction, matching...',
+  'about.stat1': 'years<br>experience',
+  'about.stat2': 'ERP<br>users',
+  'about.stat3': 'international<br>subsidiaries',
+  'about.stat4': 'numerical<br>modeling',
+  'about.stat5': 'IEEE publications<br>& conferences',
+  'exp.title': 'experience',
+  'exp.1.year': '2015 — today',
+  'exp.1.status': '● Currently employed',
+  'exp.1.title': 'Senior Developer .NET / WPF — Architecture & AI',
+  'exp.1.org': 'CCB · International Multimedia Publishing',
+  'exp.1.desc': 'Proprietary ERP · 80 subsidiaries · 400,000+ users · Agile @ scale · team of 10',
+  'exp.1.li1': '<b>Major Migration (5 years)</b> — Overhaul of legacy ERP from Access/VBA to C# / WPF',
+  'exp.1.li2': '<b>Core ERP & E-Commerce</b> — Integrated procurement module, e-commerce interconnection (cXML streams)',
+  'exp.1.li3': '<b>Architecture</b> — Rich client + Azure Service Bus server, GitLab CI/CD',
+  'exp.1.li4': '<b>Quality</b> — Automated BDD testing (Specflow/Reqnroll), systematic code review',
+  'exp.1.li5': '<b>Business AI</b> — Procurement/invoicing automation, intelligent extraction, matching',
+  'exp.1.li6': '<b>Technical AI</b> — AI-assisted development, augmented code review',
+  'exp.1.li7': '<b>R&D</b> — MCPs (codebase indexing, GitLab/Redmine), AI Buildathons',
+  'exp.1.li8': '<b>Events & Creation</b> — Design and development of a collaborative video game (Godot engine)',
+  'exp.2.year': '2014 — 2015',
+  'exp.2.title': 'Computation Engineer',
+  'exp.2.org': 'Akkodis (ex-Akka Technologies) · Schneider Electric mission · Grenoble',
+  'exp.2.desc': 'Electromagnetic modeling of contactors, tolerance studies, automation of calculations via Python.',
+  'exp.3.year': '2010 — 2014',
+  'exp.3.pill': 'PhD',
+  'exp.3.title': 'Doctor — Numerical Modeling & HPC',
+  'exp.3.org': 'SIMAP, Materials Research Laboratory · Grenoble',
+  'exp.3.desc': '3D electromagnetic modeling of multistrand inductors. Design and implementation of a parallel HPC solver (integral method). IEEE publications and international conferences.',
+  'exp.3.li1': '<b>Thesis</b> — 3D electromagnetic modeling of multistrand inductors — development of a parallelized integral method',
+  'exp.3.li2': '<b>HPC</b> — Architectural design of a parallel solver, MPI optimization on Ada cluster (IDRIS)',
+  'exp.3.li3': '<b>Publications</b> — IEEE Transactions on Magnetics (Feb. 2014) · MEP International Symposium (Sept. 2014)',
+  'exp.4.year': 'March 2010 — August 2010',
+  'exp.4.title': 'Research Internship',
+  'exp.4.org': 'CEA, Leti · Grenoble',
+  'exp.4.desc': 'Modeling of retinal stimulation electrodes with COMSOL.',
+  'exp.4.li1': 'Modeling of retinal stimulation electrodes (COMSOL)',
+  'exp.4.li2': 'Driving and automating COMSOL calculations via MATLAB',
+  'exp.4.li3': 'Impedance measurements of electrodes and characterization support',
+  'exp.5.year': 'May 2009 — June 2009',
+  'exp.5.title': 'Research Internship',
+  'exp.5.org': 'Annecy-le-Vieux Theoretical Physics Laboratory (LAPTH) · Annecy',
+  'exp.5.desc': 'Calculation of the Higgs boson decay probability.',
+  'exp.5.li1': 'Calculation of the Higgs boson decay probability',
+  'exp.5.li2': 'Development in C++',
+  'skills.title': 'tech stack',
+  'skills.languages': 'languages · level',
+  'skills.frameworks': 'frameworks & tools',
+  'skills.ai': 'AI & research',
+  'skills.methods': 'methods',
+  'skills.level.csharp': '<b>Expert</b> · 10 years · ERP with 400k users',
+  'skills.level.cpp': '<b>Advanced</b> · parallelized HPC solver, MPI',
+  'skills.level.python': '<b>Advanced</b> · computation automation, tooling',
+  'skills.level.sql': '<b>Proficient</b> · ERP data model',
+  'skills.level.ps': '<b>Proficient</b> · CI/CD, deployment scripts',
+  'skills.method1': 'Software Architecture',
+  'skills.method2': 'Agile at Scale',
+  'skills.method3': 'BDD / TDD',
+  'skills.method4': 'Legacy Migration',
+  'skills.method5': 'Technical Leadership',
+  'skills.tag.integral': 'Integral Methods',
+  'contact.title': 'contact',
+  'contact.heading': 'Let\'s <span>talk.</span>',
+  'contact.sub': 'Question, project, opportunity: the first step is always a conversation. I reply within 48 hours.',
+  'contact.available': 'Available to discuss',
+  'footer.copyright': '© 2026 Raphaël Scapolan',
+  'footer.made': 'Generated with'
+};
+
+// Textes français relevés dans le DOM avant toute traduction : c'est ce qui
+// permet de revenir de l'anglais au français sans les redéclarer en JS.
+const frOriginals = new Map();
+document.querySelectorAll('[data-i18n]').forEach(el => {
+  frOriginals.set(el.getAttribute('data-i18n'), el.innerHTML);
+});
 
 function setLanguage(lang) {
   currentLang = lang;
   localStorage.setItem('language', lang);
   document.documentElement.setAttribute('data-lang', lang);
   document.documentElement.lang = lang;
+
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
-    const text = translations[lang]?.[key];
-    if (text) {
-      if (text.includes('<')) {
-        el.innerHTML = text;
-      } else {
-        el.textContent = text;
-      }
-    }
+    // Le français vient du DOM, l'anglais du dictionnaire. innerHTML dans les
+    // deux cas : les textes relevés sont déjà du HTML, la reprise est exacte.
+    const text = lang === 'en' ? enTranslations[key] : frOriginals.get(key);
+    if (text != null) el.innerHTML = text;
   });
-  const langBtn = document.getElementById('langToggle');
-  langBtn.textContent = lang === 'en' ? 'EN' : 'FR';
 
-  // Update toggle buttons text
-  const showMoreText = lang === 'en' ? '▸ Show more' : '▸ Voir plus';
-  const showLessText = lang === 'en' ? '▾ Show less' : '▾ Réduire';
+  document.getElementById('langToggle').textContent = lang === 'en' ? 'EN' : 'FR';
 
   document.querySelectorAll('.exp-toggle').forEach(btn => {
-    const more = btn.previousElementSibling;
-    if (more.classList.contains('open')) {
-      btn.textContent = showLessText;
-    } else {
-      btn.textContent = showMoreText;
-    }
+    const open = btn.previousElementSibling.classList.contains('open');
+    btn.textContent = uiStrings[lang][open ? 'showLess' : 'showMore'];
   });
 
   updateControlLabels();
@@ -741,12 +660,12 @@ function setLanguage(lang) {
 // Libellés des contrôles de la topbar. Ils décrivent l'action à venir, pas
 // l'état courant : ils dépendent donc de la langue ET du thème actif.
 function updateControlLabels() {
-  const t = translations[currentLang];
+  const u = uiStrings[currentLang];
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
   const labels = [
-    ['hamburger',   t['ui.menu']],
-    ['langToggle',  t['ui.lang']],
-    ['themeToggle', isDark ? t['ui.theme.toLight'] : t['ui.theme.toDark']]
+    ['hamburger',   u.menu],
+    ['langToggle',  u.lang],
+    ['themeToggle', isDark ? u.themeToLight : u.themeToDark]
   ];
   labels.forEach(([id, label]) => {
     const el = document.getElementById(id);
@@ -773,11 +692,8 @@ let currentLang = 'fr';
 function setupToggleButtons() {
   document.querySelectorAll('.exp-toggle').forEach(btn => {
     btn.addEventListener('click', function() {
-      const showMoreText = currentLang === 'en' ? '▸ Show more' : '▸ Voir plus';
-      const showLessText = currentLang === 'en' ? '▾ Show less' : '▾ Réduire';
-      const more = this.previousElementSibling;
-      const open = more.classList.toggle('open');
-      this.textContent = open ? showLessText : showMoreText;
+      const open = this.previousElementSibling.classList.toggle('open');
+      this.textContent = uiStrings[currentLang][open ? 'showLess' : 'showMore'];
     });
   });
 }
