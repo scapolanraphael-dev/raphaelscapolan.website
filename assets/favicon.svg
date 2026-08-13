@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Raphaël Scapolan">
+  <rect width="32" height="32" rx="7" fill="#0d1117"/>
+  <path d="M10 10 L16 16 L10 22" fill="none" stroke="#3fb950" stroke-width="3.4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M18.5 22 L24 22" fill="none" stroke="#58a6ff" stroke-width="3.4"
+        stroke-linecap="round"/>
+</svg>
