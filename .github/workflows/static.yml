@@ -33,11 +33,17 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Assemble site
+        # Only the files that make up the site: doc/ holds source material
+        # (LinkedIn profile, screenshots) that must not be published.
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          cp -r assets _site/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: '_site'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
