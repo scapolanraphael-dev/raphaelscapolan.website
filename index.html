@@ -165,9 +165,23 @@ body { background: var(--bg); color: var(--tx); font-family: var(--sans); font-s
 .exp-org { font-family: var(--mono); font-size: 12px; color: var(--amber); margin-bottom: 1rem; }
 .exp-p { font-size: 14px; color: var(--muted); margin-bottom: .8rem; }
 .exp-ul { list-style: none; display: flex; flex-direction: column; gap: .35rem; }
-.exp-ul li { font-size: 13.5px; color: var(--muted); display: flex; gap: .6rem; align-items: baseline; }
-.exp-ul li::before { content: '▸'; color: var(--green); flex-shrink: 0; font-size: 10px; }
+/* Marqueur en position absolue plutot qu'en item flex : le contenu inline
+   (liens, italiques) doit s'ecouler normalement, pas se repartir en colonnes. */
+.exp-ul li { font-size: 13.5px; color: var(--muted); position: relative; padding-left: 1.1rem; }
+.exp-ul li::before { content: '▸'; color: var(--green); font-size: 10px; position: absolute; left: 0; top: .45em; }
 .exp-ul li b { color: var(--tx); font-weight: 500; }
+.exp-p b { color: var(--tx); font-weight: 600; }
+.exp-ul a.lnk, .exp-p a.lnk { color: var(--blue); text-decoration: none; border-bottom: 1px dotted currentColor; }
+.exp-ul a.lnk:hover, .exp-p a.lnk:hover { color: var(--green); }
+/* Figures ModeLitz. Les rendus ont un fond blanc : on l'assume en plaque
+   claire, comme les logos, plutot que de le laisser trancher sur le sombre. */
+.fig-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.4rem; }
+.fig { display: flex; flex-direction: column; gap: .5rem; min-width: 0; }
+.fig img {
+  width: 100%; height: auto; display: block; border-radius: 6px;
+  background: #fff; padding: .5rem; border: 1px solid var(--bdr);
+}
+.fig figcaption { font-family: var(--mono); font-size: 10.5px; color: var(--muted); line-height: 1.5; }
 .exp-stack { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--bdr); display: flex; flex-wrap: wrap; gap: .4rem; }
 .stag { font-family: var(--mono); font-size: 11px; padding: .15rem .55rem; background: rgba(188,140,255,.08); border: 1px solid rgba(188,140,255,.2); border-radius: 3px; color: var(--purp); }
 .exp-more { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
@@ -237,6 +251,7 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
   .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
   .hero-meta { gap: 1rem; }
   .exp-logo-body { width: 36px; height: 36px; }
+  .fig-pair { grid-template-columns: 1fr; }
   .term-body { font-size: 12px; overflow-wrap: break-word; word-break: break-all; }
   footer { flex-direction: column; gap: .4rem; text-align: center; padding: 1.2rem 1.25rem; }
   .hamburger { display: flex; }
@@ -380,14 +395,27 @@ footer { max-width: 900px; margin: 0 auto; padding: 1.5rem 2rem; border-top: 1px
           <div><p class="exp-t" data-i18n="exp.3.title">Docteur — Modélisation numérique & HPC</p>
           <p class="exp-org" data-i18n="exp.3.org">SIMAP, Laboratoire de Recherche sur les Matériaux · Grenoble</p></div>
         </div>
-        <p class="exp-p" data-i18n="exp.3.desc">Modélisation électromagnétique 3D d'inducteurs multibrins. Conception et implémentation d'un solveur HPC parallèle (méthode intégrale). Publications IEEE et conférences internationales.</p>
+        <p class="exp-p" data-i18n="exp.3.desc">Modélisation électromagnétique 3D d'inducteurs multibrins. Conception et implémentation de <b>ModeLitz</b>, solveur HPC parallèle par méthode intégrale, déposé sous IDDN. Publication IEEE et communication internationale.</p>
         <div class="exp-more">
           <div>
             <ul class="exp-ul">
-              <li data-i18n="exp.3.li1"><b>Thèse</b> — Modélisation électromagnétique 3D d'inducteurs multibrins — développement d'une méthode intégrale parallélisée</li>
+              <li data-i18n="exp.3.li1"><b>Thèse</b> — Modélisation électromagnétique 3D d'inducteurs multibrins — développement d'une méthode intégrale parallélisée. Soutenue le 13 novembre 2014, <a class="lnk" href="https://theses.hal.science/tel-01104637v1" target="_blank" rel="noopener">texte intégral sur HAL</a></li>
               <li data-i18n="exp.3.li2"><b>HPC</b> — Conception architecturale d'un solveur parallèle, optimisation MPI sur cluster Ada (IDRIS)</li>
-              <li data-i18n="exp.3.li3"><b>Publications</b> — IEEE Transactions on Magnetics (fév. 2014) · Colloque international MEP (sept. 2014)</li>
+              <li data-i18n="exp.3.li3"><b>ModeLitz</b> — Logiciel déposé auprès de l'Agence pour la protection des programmes, IDDN.FR.001.120006.000.S</li>
+              <li data-i18n="exp.3.li4"><b>Publications</b> — <i>3-D Multistrands Inductor Modeling: Influence of Complex Geometrical Arrangements</i>, IEEE Transactions on Magnetics 50(2), fév. 2014 — <a class="lnk" href="https://doi.org/10.1109/TMAG.2013.2282502" target="_blank" rel="noopener">DOI</a> · Colloque international MEP, sept. 2014</li>
             </ul>
+            <div class="fig-pair">
+              <figure class="fig">
+                <img src="assets/modelitz/joule-1512-brins.jpg" loading="lazy" width="800" height="654"
+                     alt="Inducteur multibrins de 1512 brins, chaque brin coloré selon la puissance Joule qu'il dissipe">
+                <figcaption data-i18n="exp.3.fig1">Puissance Joule dissipée par brin — inducteur de 1512 brins (6×14×18) à 50 kHz</figcaption>
+              </figure>
+              <figure class="fig">
+                <img src="assets/modelitz/acceleration-mpi.png" loading="lazy" width="800" height="603"
+                     alt="Courbes du facteur d'accélération en fonction du nombre de processus, jusqu'à 360 processus">
+                <figcaption data-i18n="exp.3.fig2">Accélération du solveur parallèle jusqu'à 360 processus — cluster Ada, IDRIS</figcaption>
+              </figure>
+            </div>
             <div class="exp-stack">
               <span class="stag">C++</span><span class="stag">MPI</span><span class="stag">Python</span>
               <span class="stag">MATLAB</span><span class="stag">HPC</span><span class="stag">FEA</span>
@@ -585,10 +613,13 @@ const enTranslations = {
   'exp.3.pill': 'PhD',
   'exp.3.title': 'Doctor — Numerical Modeling & HPC',
   'exp.3.org': 'SIMAP, Materials Research Laboratory · Grenoble',
-  'exp.3.desc': '3D electromagnetic modeling of multistrand inductors. Design and implementation of a parallel HPC solver (integral method). IEEE publications and international conferences.',
-  'exp.3.li1': '<b>Thesis</b> — 3D electromagnetic modeling of multistrand inductors — development of a parallelized integral method',
+  'exp.3.desc': '3D electromagnetic modeling of multistrand inductors. Design and implementation of <b>ModeLitz</b>, a parallel HPC solver based on an integral method, registered under IDDN. IEEE publication and international conference paper.',
+  'exp.3.li1': '<b>Thesis</b> — 3D electromagnetic modeling of multistrand inductors — development of a parallelized integral method. Defended 13 November 2014, <a class="lnk" href="https://theses.hal.science/tel-01104637v1" target="_blank" rel="noopener">full text on HAL</a>',
   'exp.3.li2': '<b>HPC</b> — Architectural design of a parallel solver, MPI optimization on Ada cluster (IDRIS)',
-  'exp.3.li3': '<b>Publications</b> — IEEE Transactions on Magnetics (Feb. 2014) · MEP International Symposium (Sept. 2014)',
+  'exp.3.li3': '<b>ModeLitz</b> — Software registered with the French Agency for the Protection of Programs, IDDN.FR.001.120006.000.S',
+  'exp.3.li4': '<b>Publications</b> — <i>3-D Multistrands Inductor Modeling: Influence of Complex Geometrical Arrangements</i>, IEEE Transactions on Magnetics 50(2), Feb. 2014 — <a class="lnk" href="https://doi.org/10.1109/TMAG.2013.2282502" target="_blank" rel="noopener">DOI</a> · MEP International Colloquium, Sept. 2014',
+  'exp.3.fig1': 'Joule power dissipated per strand — 1512-strand inductor (6×14×18) at 50 kHz',
+  'exp.3.fig2': 'Parallel solver speed-up up to 360 processes — Ada cluster, IDRIS',
   'exp.4.year': 'March 2010 — August 2010',
   'exp.4.title': 'Research Internship',
   'exp.4.org': 'CEA, Leti · Grenoble',
